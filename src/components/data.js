@@ -51,6 +51,23 @@ export const kpiData = [
       "How do prescription volumes compare across different regions?",
       "Which medications have the highest prescription volumes?",
     ],
+    chartData: {
+      chartType: "bar",
+      data: {
+        labels: ["Medication A", "Medication B", "Medication C"],
+        datasets: [
+          {
+            label: "Prescription Volume",
+            backgroundColor: "#FFD700",
+            borderColor: "#000",
+            borderWidth: 1,
+            hoverBackgroundColor: "#FFF",
+            hoverBorderColor: "#000",
+            data: [1200, 900, 1500],
+          },
+        ],
+      },
+    },
   },
   {
     title: "Adherence Rate",
@@ -64,6 +81,20 @@ export const kpiData = [
       "Which factors are affecting patient adherence?",
       "How does adherence vary by patient demographics?",
     ],
+    chartData: {
+      chartType: "line",
+      data: {
+        labels: ["Jan", "Feb", "Mar"],
+        datasets: [
+          {
+            label: "Adherence Rate",
+            borderColor: "#FFD700",
+            backgroundColor: "#FFF",
+            data: [80, 75, 85],
+          },
+        ],
+      },
+    },
   },
   {
     title: "Market Share",
@@ -77,6 +108,19 @@ export const kpiData = [
       "How has our market share changed over time?",
       "How do we compare to competitors in market share?",
     ],
+    chartData: {
+      chartType: "pie",
+      data: {
+        labels: ["Your Company", "Competitor A", "Competitor B"],
+        datasets: [
+          {
+            data: [60, 25, 15],
+            backgroundColor: ["#FFD700", "#FFA500", "#FF6347"],
+            hoverBackgroundColor: ["#FFF", "#FFF", "#FFF"],
+          },
+        ],
+      },
+    },
   },
   {
     title: "Revenue Growth",
@@ -90,6 +134,21 @@ export const kpiData = [
       "Which products are contributing most to revenue growth?",
       "What strategies can we implement to drive further revenue growth?",
     ],
+    chartData: {
+      chartType: "doughnut",
+      data: {
+        labels: ["Q1", "Q2", "Q3"],
+        datasets: [
+          {
+            label: "Revenue Growth",
+            backgroundColor: "rgba(255,215,0,0.2)",
+            borderColor: "#FFD700",
+            borderWidth: 1,
+            data: [1000, 1200, 1500],
+          },
+        ],
+      },
+    },
   },
   {
     title: "Cost per Prescription",
@@ -103,6 +162,23 @@ export const kpiData = [
       "How can we reduce costs per prescription?",
       "How do our prescription costs compare to industry benchmarks?",
     ],
+    chartData: {
+      chartType: "polarArea",
+      data: {
+        labels: ["Your Cost", "Industry Benchmark"],
+        datasets: [
+          {
+            label: "Cost per Prescription",
+            backgroundColor: "#FFD700",
+            borderColor: "#000",
+            borderWidth: 1,
+            hoverBackgroundColor: "#FFF",
+            hoverBorderColor: "#000",
+            data: [15, 20],
+          },
+        ],
+      },
+    },
   },
   {
     title: "Patient Satisfaction",
@@ -116,8 +192,22 @@ export const kpiData = [
       "What are the main factors influencing patient satisfaction?",
       "How can we improve patient satisfaction scores?",
     ],
+    chartData: {
+      chartType: "polarArea",
+      data: {
+        labels: ["Satisfied", "Neutral", "Dissatisfied"],
+        datasets: [
+          {
+            data: [70, 20, 10],
+            backgroundColor: ["#32CD32", "#FFD700", "#FF6347"],
+            hoverBackgroundColor: ["#7CFC00", "#FFA500", "#FF4500"],
+          },
+        ],
+      },
+    },
   },
 ];
+
 
 // You can also update featuredData, trendingData, layoutData, and storyboardData similarly with any additional styling or data as needed.
 

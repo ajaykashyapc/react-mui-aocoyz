@@ -9,23 +9,28 @@ import {
   Button,
   Grid,
 } from '@material-ui/core';
-// import CloseIcon from '@material-ui/icons/Close';
-import { Bar, Pie } from 'react-chartjs-2';
+import { Bar, Line, Pie, Doughnut, Radar, PolarArea } from 'react-chartjs-2';
 import {
   Chart as ChartJS,
   CategoryScale,
   LinearScale,
   BarElement,
+  LineElement,
+  PointElement,
   Title,
   Tooltip,
   Legend,
   ArcElement,
+  RadialLinearScale,
 } from 'chart.js';
 
 ChartJS.register(
   CategoryScale,
   LinearScale,
   BarElement,
+  LineElement,
+  PointElement,
+  RadialLinearScale,
   Title,
   Tooltip,
   Legend,
@@ -35,46 +40,42 @@ ChartJS.register(
 const KpiModal = ({ isOpen, onClose, data }) => {
   if (!data) return null;
 
-  // Mock chart data
-  const barChartData = {
-    labels: ['Q1', 'Q2', 'Q3', 'Q4'],
-    datasets: [
-      {
-        label: data.title,
-        backgroundColor: '#FFD700',
-        borderColor: '#000',
-        borderWidth: 1,
-        hoverBackgroundColor: '#FFF',
-        hoverBorderColor: '#000',
-        data: [65, 59, 80, 81],
-      },
-    ],
-  };
+  const renderChart = () => {
+    const { chartType, data: chartData } = data.chartData;
 
-  const pieChartData = {
-    labels: ['Adherent', 'Non-Adherent'],
-    datasets: [
-      {
-        data: [300, 50],
-        backgroundColor: ['#FFD700', '#FFF'],
-        hoverBackgroundColor: ['#FFF', '#FFD700'],
-      },
-    ],
+    if (!chartData) {
+      return null;
+    }
+
+    switch (chartType) {
+      case 'bar':
+        return <Bar data={chartData} />;
+      case 'line':
+        return <Line data={chartData} />;
+      case 'pie':
+        return <Pie data={chartData} />;
+      case 'doughnut':
+        return <Doughnut data={chartData} />;
+      case 'radar':
+        return <Radar data={chartData} />;
+      case 'polarArea':
+        return <PolarArea data={chartData} />;
+      case 'column':
+        return <Bar data={chartData} />;
+      default:
+        return null;
+    }
   };
 
   return (
     <Dialog open={isOpen} onClose={onClose} maxWidth="md" fullWidth>
-      <DialogTitle style={{ backgroundColor: '#000', color: '#FFD700' }}>
+      <DialogTitle>
         <Typography variant="h5">{data.title}</Typography>
-        <IconButton
-          aria-label="close"
-          onClick={onClose}
-          style={{ position: 'absolute', right: 8, top: 8, color: '#FFD700' }}
-        >
-          {/* <CloseIcon /> */}
+        <IconButton aria-label="close" onClick={onClose} style={{ position: 'absolute', right: 8, top: 8 }}>
+          ×
         </IconButton>
       </DialogTitle>
-      <DialogContent style={{ backgroundColor: '#000', color: '#FFF' }}>
+      <DialogContent>
         <Typography variant="body1" style={{ marginBottom: '10px' }}>{data.description}</Typography>
         <div style={{ marginBottom: '20px' }}>
           <Typography variant="caption">Metric IDs: {data.metricIDs.join(', ')}</Typography>
@@ -84,10 +85,7 @@ const KpiModal = ({ isOpen, onClose, data }) => {
         <Typography variant="body2" style={{ marginBottom: '10px' }}>Last Modified Date: {data.lastModifiedDate}</Typography>
         
         <div style={{ marginTop: '20px', marginBottom: '20px' }}>
-          <Bar data={barChartData} />
-        </div>
-        <div style={{ marginTop: '20px', marginBottom: '20px' }}>
-          <Pie data={pieChartData} />
+          {renderChart()}
         </div>
         
         <Typography variant="h6" style={{ marginTop: '20px' }}>Business Questions</Typography>
@@ -100,9 +98,9 @@ const KpiModal = ({ isOpen, onClose, data }) => {
           ))}
         </Grid>
       </DialogContent>
-      <DialogActions style={{ backgroundColor: '#000' }}>
-        <Button style={{ color: '#FFD700' }} onClick={() => console.log('Favorite KPI')}>Favorite KPI</Button>
-        <Button style={{ color: '#FFD700' }} onClick={() => console.log('Copy link')}>Copy link</Button>
+      <DialogActions>
+        <Button color="primary" variant="contained" onClick={() => console.log('Favorite KPI')}>Favorite KPI</Button>
+        <Button color="secondary" variant="contained" onClick={() => console.log('Copy link')}>Copy link</Button>
       </DialogActions>
     </Dialog>
   );
