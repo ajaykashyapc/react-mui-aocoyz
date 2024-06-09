@@ -7,75 +7,74 @@ import {
   Typography,
   IconButton,
   Button,
-  Grid
+  Grid,
 } from '@material-ui/core';
+// import CloseIcon from '@material-ui/icons/Close';
 import { Bar, Pie } from 'react-chartjs-2';
-import { Chart, CategoryScale, LinearScale, BarElement, ArcElement, Tooltip, Legend } from 'chart.js';
+import {
+  Chart as ChartJS,
+  CategoryScale,
+  LinearScale,
+  BarElement,
+  Title,
+  Tooltip,
+  Legend,
+  ArcElement,
+} from 'chart.js';
 
-// Register Chart.js components
-Chart.register(CategoryScale, LinearScale, BarElement, ArcElement, Tooltip, Legend);
-
-const chartData = {
-  labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
-  datasets: [
-    {
-      label: 'Prescriptions Filled',
-      backgroundColor: 'gold',
-      borderColor: 'black',
-      borderWidth: 1,
-      hoverBackgroundColor: 'white',
-      hoverBorderColor: 'gold',
-      data: [65, 59, 80, 81, 56, 55, 40]
-    }
-  ]
-};
-
-const pieData = {
-  labels: ['Adherence', 'Non-Adherence'],
-  datasets: [
-    {
-      data: [70, 30],
-      backgroundColor: ['gold', 'black'],
-      hoverBackgroundColor: ['white', 'gold']
-    }
-  ]
-};
-
-const options = {
-  plugins: {
-    legend: {
-      labels: {
-        fontColor: 'white'
-      }
-    }
-  },
-  scales: {
-    y: {
-      ticks: {
-        beginAtZero: true,
-        fontColor: 'white'
-      }
-    },
-    x: {
-      ticks: {
-        fontColor: 'white'
-      }
-    }
-  }
-};
+ChartJS.register(
+  CategoryScale,
+  LinearScale,
+  BarElement,
+  Title,
+  Tooltip,
+  Legend,
+  ArcElement
+);
 
 const KpiModal = ({ isOpen, onClose, data }) => {
   if (!data) return null;
 
+  // Mock chart data
+  const barChartData = {
+    labels: ['Q1', 'Q2', 'Q3', 'Q4'],
+    datasets: [
+      {
+        label: data.title,
+        backgroundColor: '#FFD700',
+        borderColor: '#000',
+        borderWidth: 1,
+        hoverBackgroundColor: '#FFF',
+        hoverBorderColor: '#000',
+        data: [65, 59, 80, 81],
+      },
+    ],
+  };
+
+  const pieChartData = {
+    labels: ['Adherent', 'Non-Adherent'],
+    datasets: [
+      {
+        data: [300, 50],
+        backgroundColor: ['#FFD700', '#FFF'],
+        hoverBackgroundColor: ['#FFF', '#FFD700'],
+      },
+    ],
+  };
+
   return (
     <Dialog open={isOpen} onClose={onClose} maxWidth="md" fullWidth>
-      <DialogTitle style={{ backgroundColor: 'black', color: 'gold' }}>
+      <DialogTitle style={{ backgroundColor: '#000', color: '#FFD700' }}>
         <Typography variant="h5">{data.title}</Typography>
-        <IconButton aria-label="close" onClick={onClose} style={{ position: 'absolute', right: 8, top: 8, color: 'gold' }}>
-          ×
+        <IconButton
+          aria-label="close"
+          onClick={onClose}
+          style={{ position: 'absolute', right: 8, top: 8, color: '#FFD700' }}
+        >
+          {/* <CloseIcon /> */}
         </IconButton>
       </DialogTitle>
-      <DialogContent style={{ backgroundColor: 'black', color: 'white' }}>
+      <DialogContent style={{ backgroundColor: '#000', color: '#FFF' }}>
         <Typography variant="body1" style={{ marginBottom: '10px' }}>{data.description}</Typography>
         <div style={{ marginBottom: '20px' }}>
           <Typography variant="caption">Metric IDs: {data.metricIDs.join(', ')}</Typography>
@@ -84,27 +83,26 @@ const KpiModal = ({ isOpen, onClose, data }) => {
         <Typography variant="body2" style={{ marginBottom: '10px' }}>Affiliate Applicability: {data.affiliateApplicability}</Typography>
         <Typography variant="body2" style={{ marginBottom: '10px' }}>Last Modified Date: {data.lastModifiedDate}</Typography>
         
-        <Typography variant="h6" style={{ marginTop: '20px', color: 'gold' }}>KPI Charts</Typography>
-        <div style={{ marginBottom: '20px' }}>
-          <Bar data={chartData} options={options} />
+        <div style={{ marginTop: '20px', marginBottom: '20px' }}>
+          <Bar data={barChartData} />
         </div>
-        <div style={{ marginBottom: '20px' }}>
-          <Pie data={pieData} options={{ plugins: { legend: { labels: { fontColor: 'white' } } } }} />
+        <div style={{ marginTop: '20px', marginBottom: '20px' }}>
+          <Pie data={pieChartData} />
         </div>
         
-        <Typography variant="h6" style={{ marginTop: '20px', color: 'gold' }}>Business Questions</Typography>
+        <Typography variant="h6" style={{ marginTop: '20px' }}>Business Questions</Typography>
         <Grid container spacing={2}>
           {data.businessQuestions.map((question, index) => (
             <Grid item xs={12} key={index}>
-              <Typography variant="subtitle1" style={{ color: 'gold' }}>{`Question ${index + 1}`}</Typography>
+              <Typography variant="subtitle1">{`Question ${index + 1}`}</Typography>
               <Typography variant="body2">{question}</Typography>
             </Grid>
           ))}
         </Grid>
       </DialogContent>
-      <DialogActions style={{ backgroundColor: 'black' }}>
-        <Button color="primary" variant="contained" style={{ backgroundColor: 'gold', color: 'black' }} onClick={() => console.log('Favorite KPI')}>Favorite KPI</Button>
-        <Button color="secondary" variant="contained" style={{ backgroundColor: 'white', color: 'black' }} onClick={() => console.log('Copy link')}>Copy link</Button>
+      <DialogActions style={{ backgroundColor: '#000' }}>
+        <Button style={{ color: '#FFD700' }} onClick={() => console.log('Favorite KPI')}>Favorite KPI</Button>
+        <Button style={{ color: '#FFD700' }} onClick={() => console.log('Copy link')}>Copy link</Button>
       </DialogActions>
     </Dialog>
   );

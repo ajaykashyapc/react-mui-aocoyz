@@ -51,18 +51,76 @@ export const kpiData = [
       "How do prescription volumes compare across different regions?",
       "Which medications have the highest prescription volumes?",
     ],
-    chartData: {
-      type: 'bar',
-      data: [65, 59, 80, 81, 56, 55, 40],
-      labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
-      backgroundColor: 'gold',
-      borderColor: 'black',
-      hoverBackgroundColor: 'white',
-      hoverBorderColor: 'gold',
-    }
   },
-  // More KPI data...
+  {
+    title: "Adherence Rate",
+    description: "Measures the percentage of patients who follow their prescribed medication regimen.",
+    metricIDs: ["ADH001", "ADH002"],
+    calculation: "Number of patients adhering to their regimen / Total number of patients prescribed the medication * 100",
+    affiliateApplicability: "All affiliates",
+    lastModifiedDate: "2024-06-09",
+    businessQuestions: [
+      "What is the current adherence rate for our medications?",
+      "Which factors are affecting patient adherence?",
+      "How does adherence vary by patient demographics?",
+    ],
+  },
+  {
+    title: "Market Share",
+    description: "The percentage of total sales in the market that is attributed to our company.",
+    metricIDs: ["MS001", "MS002"],
+    calculation: "Company sales / Total market sales * 100",
+    affiliateApplicability: "All affiliates",
+    lastModifiedDate: "2024-06-09",
+    businessQuestions: [
+      "What is our market share for key products?",
+      "How has our market share changed over time?",
+      "How do we compare to competitors in market share?",
+    ],
+  },
+  {
+    title: "Revenue Growth",
+    description: "The increase in revenue over a specified period.",
+    metricIDs: ["REV001", "REV002"],
+    calculation: "(Current period revenue - Previous period revenue) / Previous period revenue * 100",
+    affiliateApplicability: "All affiliates",
+    lastModifiedDate: "2024-06-09",
+    businessQuestions: [
+      "What is our revenue growth rate over the past year?",
+      "Which products are contributing most to revenue growth?",
+      "What strategies can we implement to drive further revenue growth?",
+    ],
+  },
+  {
+    title: "Cost per Prescription",
+    description: "The average cost incurred per prescription filled.",
+    metricIDs: ["COST001", "COST002"],
+    calculation: "Total costs / Total number of prescriptions filled",
+    affiliateApplicability: "All affiliates",
+    lastModifiedDate: "2024-06-09",
+    businessQuestions: [
+      "What is the average cost per prescription?",
+      "How can we reduce costs per prescription?",
+      "How do our prescription costs compare to industry benchmarks?",
+    ],
+  },
+  {
+    title: "Patient Satisfaction",
+    description: "Measures the satisfaction levels of patients with their medications and treatment experience.",
+    metricIDs: ["SAT001", "SAT002"],
+    calculation: "Sum of satisfaction survey scores / Number of surveys completed",
+    affiliateApplicability: "All affiliates",
+    lastModifiedDate: "2024-06-09",
+    businessQuestions: [
+      "What is the overall patient satisfaction with our medications?",
+      "What are the main factors influencing patient satisfaction?",
+      "How can we improve patient satisfaction scores?",
+    ],
+  },
 ];
+
+// You can also update featuredData, trendingData, layoutData, and storyboardData similarly with any additional styling or data as needed.
+
 
 export const layoutData = [
   {
