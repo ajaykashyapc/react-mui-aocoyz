@@ -296,25 +296,243 @@ export const layoutData = [
 
 export const storyboardData = [
   {
-    icon: '🎬',
-    title: 'Product Launch Plan',
-    description: 'Storyboard for the upcoming product launch.',
-    used: 453,
-    type: 'Storyboard',
-    pagesNo: 5,
-    lastUpdated: '04/12/2024',
-    tags: ['product', 'launch', 'plan'],
+    title: "New Product Introduction",
+    description: "Storyboard for introducing a new product to the market.",
+    affiliateApplicability: "Global",
     kpis: [
-      { title: 'Sales Target', value: '5000 units', category: 'Sales', dateRange: 'Next Quarter', metrics: ['Units Sold'] },
-      { title: 'Market Share', value: '15%', category: 'Market', dateRange: 'Next Quarter', metrics: ['Percentage'] },
-      // More KPIs...
+      {
+        title: "Market Penetration",
+        chartData: {
+          chartType: "pie",
+          data: {
+            labels: ["New Customers", "Market Share"],
+            datasets: [
+              {
+                label: "Market Penetration",
+                backgroundColor: ["#FFD700", "#FF5733"],
+                data: [60, 40],
+              },
+            ],
+          },
+        },
+      },
+      {
+        title: "Customer Feedback Score",
+        chartData: {
+          chartType: "bar",
+          data: {
+            labels: ["Survey Scores"],
+            datasets: [
+              {
+                label: "Customer Feedback Score",
+                backgroundColor: "#36A2EB",
+                data: [8.5],
+              },
+            ],
+          },
+        },
+      },
     ],
-    businessQuestions: [
-      'What are the launch objectives?',
-      'Which channels will be used?',
-      'What is the timeline?',
-      'Who are the key stakeholders?'
-    ]
   },
-  // More storyboard data...
+  {
+    title: "Digital Marketing Campaign",
+    description: "Storyboard outlining the digital marketing campaign strategies.",
+    affiliateApplicability: "North America",
+    kpis: [
+      {
+        title: "Click-Through Rate (CTR)",
+        chartData: {
+          chartType: "line",
+          data: {
+            labels: ["Clicks", "Impressions"],
+            datasets: [
+              {
+                label: "Click-Through Rate (CTR)",
+                borderColor: "#FFD700",
+                backgroundColor: "rgba(255, 215, 0, 0.1)",
+                data: [2.5, 5],
+              },
+            ],
+          },
+        },
+      },
+      {
+        title: "Conversion Rate",
+        chartData: {
+          chartType: "line",
+          data: {
+            labels: ["Conversions", "Visits"],
+            datasets: [
+              {
+                label: "Conversion Rate",
+                borderColor: "#FF5733",
+                backgroundColor: "rgba(255, 87, 51, 0.1)",
+                data: [1.8, 3],
+              },
+            ],
+          },
+        },
+      },
+    ],
+  },
+  {
+    title: "Operational Efficiency",
+    description: "Storyboard for tracking operational efficiency improvements.",
+    affiliateApplicability: "All affiliates",
+    kpis: [
+      {
+        title: "Production Downtime",
+        chartData: {
+          chartType: "bar",
+          data: {
+            labels: ["Downtime Hours"],
+            datasets: [
+              {
+                label: "Production Downtime",
+                backgroundColor: "#FFD700",
+                data: [5],
+              },
+            ],
+          },
+        },
+      },
+      {
+        title: "Unit Cost Reduction",
+        chartData: {
+          chartType: "bar",
+          data: {
+            labels: ["Cost per Unit"],
+            datasets: [
+              {
+                label: "Unit Cost Reduction",
+                backgroundColor: "#FF5733",
+                data: [10],
+              },
+            ],
+          },
+        },
+      },
+    ],
+  },
+  {
+    title: "Customer Engagement Plan",
+    description: "Storyboard for increasing customer engagement.",
+    affiliateApplicability: "EMEA",
+    kpis: [
+      {
+        title: "Customer Retention Rate",
+        chartData: {
+          chartType: "doughnut",
+          data: {
+            labels: ["Retention Rate"],
+            datasets: [
+              {
+                label: "Customer Retention Rate",
+                backgroundColor: ["#FFD700", "#FF5733"],
+                data: [85, 15],
+              },
+            ],
+          },
+        },
+      },
+      {
+        title: "Average Response Time",
+        chartData: {
+          chartType: "line",
+          data: {
+            labels: ["Response Time", "Incident Time"],
+            datasets: [
+              {
+                label: "Average Response Time",
+                borderColor: "#36A2EB",
+                backgroundColor: "rgba(54, 162, 235, 0.1)",
+                data: [24,56],
+              },
+            ],
+          },
+        },
+      },
+    ],
+  },
+  {
+    title: "Financial Performance Review",
+    description: "Storyboard for reviewing financial performance.",
+    affiliateApplicability: "Global",
+    kpis: [
+      {
+        title: "Revenue Growth",
+        chartData: {
+          chartType: "polarArea",
+          data: {
+            labels: ["Product Revenue", "Service Revenue", "Others"],
+            datasets: [
+              {
+                label: "Revenue Growth",
+                borderColor: "#FFD700",
+                backgroundColor: "rgba(255, 215, 0, 0.1)",
+                data: [12, 34, 56],
+              },
+            ],
+          },
+        },
+      },
+      {
+        title: "Net Profit Margin",
+        chartData: {
+          chartType: "bar",
+          data: {
+            labels: ["Profit Margin"],
+            datasets: [
+              {
+                label: "Net Profit Margin",
+                backgroundColor: "#FF5733",
+                data: [20],
+              },
+            ],
+          },
+        },
+      },
+    ],
+  },
+  {
+    title: "R&D Project Timeline",
+    description: "Storyboard for tracking R&D project milestones.",
+    affiliateApplicability: "All affiliates",
+    kpis: [
+      {
+        title: "Project Completion Rate",
+        chartData: {
+          chartType: "line",
+          data: {
+            labels: ["Milestones Achieved", "Goals Achieved"],
+            datasets: [
+              {
+                label: "Project Completion Rate",
+                borderColor: "#36A2EB",
+                backgroundColor: "rgba(54, 162, 235, 0.1)",
+                data: [90, 120],
+              },
+            ],
+          },
+        },
+      },
+      {
+        title: "Innovation Index",
+        chartData: {
+          chartType: "bar",
+          data: {
+            labels: ["Innovation Score"],
+            datasets: [
+              {
+                label: "Innovation Index",
+                backgroundColor: "#FFD700",
+                data: [7.8],
+              },
+            ],
+          },
+        },
+      },
+    ],
+  },
 ];
+

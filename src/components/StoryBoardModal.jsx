@@ -8,115 +8,84 @@ import {
   IconButton,
   Button,
   Grid,
-  TextField,
-  MenuItem
+  MenuItem,
+  FormControl,
+  InputLabel,
+  Select,
 } from '@material-ui/core';
-// import CloseIcon from '@material-ui/icons/Close';
+import { Bar, Line, Pie, Doughnut, Radar, PolarArea } from 'react-chartjs-2';
 
-const filterOptions = {
-  category: ['Category 1', 'Category 2', 'Category 3'],
-  dateRange: ['Last 7 days', 'Last 30 days', 'Last 6 months'],
-  metrics: ['Metric 1', 'Metric 2', 'Metric 3']
+const chartComponents = {
+  bar: Bar,
+  line: Line,
+  pie: Pie,
+  doughnut: Doughnut,
+  radar: Radar,
+  polarArea: PolarArea,
 };
 
-const StoryboardModal = ({ isOpen, onClose, data }) => {
-  const [selectedCategory, setSelectedCategory] = useState('');
-  const [selectedDateRange, setSelectedDateRange] = useState('');
-  const [selectedMetric, setSelectedMetric] = useState('');
+const StoryBoardModal = ({ isOpen, onClose, data }) => {
+  const [selectedKpiIndex, setSelectedKpiIndex] = useState(0);
 
-  const handleFilterChange = (setter) => (event) => {
-    setter(event.target.value);
+  if (!data || !data.kpis || data.kpis.length === 0) return null;
+
+  const handleKpiChange = (event) => {
+    setSelectedKpiIndex(event.target.value);
   };
 
-  const filteredKpis = data.kpis.filter((kpi) => {
-    // Apply filtering logic here based on selectedCategory, selectedDateRange, and selectedMetric
-    // This is a simplified example
-    return (
-      (!selectedCategory || kpi.category === selectedCategory) &&
-      (!selectedDateRange || kpi.dateRange === selectedDateRange) &&
-      (!selectedMetric || kpi.metrics.includes(selectedMetric))
-    );
-  });
+  const renderChart = (chartData) => {
+    const ChartComponent = chartComponents[chartData.chartType];
+
+    if (!ChartComponent) {
+      console.error(`Unsupported chart type: ${chartData.chartType}`);
+      return null;
+    }
+
+    return <ChartComponent data={chartData.data} />;
+  };
+
+  const currentKpi = data.kpis[selectedKpiIndex];
 
   return (
     <Dialog open={isOpen} onClose={onClose} maxWidth="md" fullWidth>
       <DialogTitle>
         <Typography variant="h5">{data.title}</Typography>
         <IconButton aria-label="close" onClick={onClose} style={{ position: 'absolute', right: 8, top: 8 }}>
-          {/* <CloseIcon /> */}
+          ×
         </IconButton>
       </DialogTitle>
       <DialogContent>
-        <Typography variant="body1" style={{ marginBottom: '20px' }}>{data.description}</Typography>
-        
-        <Grid container spacing={2}>
-          <Grid item xs={4}>
-            <TextField
-              select
-              label="Category"
-              value={selectedCategory}
-              onChange={handleFilterChange(setSelectedCategory)}
-              fullWidth
+        <Typography variant="body1" style={{ marginBottom: '10px' }}>{data.description}</Typography>
+        <div style={{ marginBottom: '20px' }}>
+          <FormControl variant="outlined" style={{ marginLeft: '10px', minWidth: '120px' }}>
+            <Select
+              labelId="kpi-select-label"
+              id="kpi-select"
+              value={selectedKpiIndex}
+              onChange={handleKpiChange}
+              label="KPI"
             >
-              {filterOptions.category.map((option) => (
-                <MenuItem key={option} value={option}>
-                  {option}
-                </MenuItem>
+              {data.kpis.map((kpi, index) => (
+                <MenuItem key={index} value={index}>{kpi.title}</MenuItem>
               ))}
-            </TextField>
-          </Grid>
-          <Grid item xs={4}>
-            <TextField
-              select
-              label="Date Range"
-              value={selectedDateRange}
-              onChange={handleFilterChange(setSelectedDateRange)}
-              fullWidth
-            >
-              {filterOptions.dateRange.map((option) => (
-                <MenuItem key={option} value={option}>
-                  {option}
-                </MenuItem>
-              ))}
-            </TextField>
-          </Grid>
-          <Grid item xs={4}>
-            <TextField
-              select
-              label="Metrics"
-              value={selectedMetric}
-              onChange={handleFilterChange(setSelectedMetric)}
-              fullWidth
-            >
-              {filterOptions.metrics.map((option) => (
-                <MenuItem key={option} value={option}>
-                  {option}
-                </MenuItem>
-              ))}
-            </TextField>
-          </Grid>
-        </Grid>
-
-        <div style={{ marginTop: '20px' }}>
-          <Typography variant="h6">KPIs</Typography>
-          <Grid container spacing={3}>
-            {filteredKpis.map((kpi, index) => (
-              <Grid item key={index} xs={12} sm={6} md={4}>
-                <div>
-                  <Typography variant="subtitle1">{kpi.title}</Typography>
-                  <Typography variant="body2">{kpi.value}</Typography>
-                </div>
-              </Grid>
-            ))}
-          </Grid>
+            </Select>
+          </FormControl>
         </div>
+
+        <Typography variant="body2" style={{ marginBottom: '10px' }}>Affiliate Applicability: {data.affiliateApplicability}</Typography>
+
+        <div style={{ marginTop: '20px', marginBottom: '20px' }}>
+          {currentKpi && renderChart(currentKpi.chartData)}
+        </div>
+
       </DialogContent>
       <DialogActions>
-        <Button color="primary" onClick={() => console.log('Favorite item')}>Favorite item</Button>
-        <Button color="secondary" onClick={() => console.log('Copy link')}>Copy link</Button>
+        <Button color="primary" variant="contained" onClick={() => console.log('Favorite KPI')}>Favorite KPI</Button>
+        <Button color="secondary" variant="contained" onClick={() => console.log('Copy link')}>Copy link</Button>
       </DialogActions>
     </Dialog>
   );
 };
 
-export default StoryboardModal;
+export default StoryBoardModal;
+
