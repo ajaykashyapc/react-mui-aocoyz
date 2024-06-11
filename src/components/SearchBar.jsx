@@ -2,20 +2,15 @@ import React, { useState, useEffect } from 'react';
 import {
   TextField,
   IconButton,
-  List,
-  ListItem,
-  ListItemText,
-  ListItemSecondaryAction,
-  InputAdornment,
   MenuItem,
   Paper,
   ClickAwayListener,
 } from '@material-ui/core';
 
-const SearchBar = ({ onSearch, searchResults, onResultClick }) => {
+const SearchBar = ({ onSearch, searchResults, onResultClick, recentSearches, setRecentSearches }) => {
   const [searchQuery, setSearchQuery] = useState('');
-  const [recentSearches, setRecentSearches] = useState([]);
   const [openDropdown, setOpenDropdown] = useState(false);
+  const [showPrompt, setShowPrompt] = useState(false);
 
   useEffect(() => {
     const storedSearches = JSON.parse(localStorage.getItem('recentSearches')) || [];
@@ -24,6 +19,11 @@ const SearchBar = ({ onSearch, searchResults, onResultClick }) => {
 
   const handleSearchChange = (event) => {
     setSearchQuery(event.target.value);
+    if (event.target.value.trim() === '') {
+      setShowPrompt(true);
+    } else {
+      setShowPrompt(false);
+    }
     setOpenDropdown(true);
     onSearch(event.target.value);
   };
@@ -35,29 +35,34 @@ const SearchBar = ({ onSearch, searchResults, onResultClick }) => {
       const updatedSearches = [searchQuery, ...recentSearches.filter(term => term !== searchQuery)].slice(0, 5);
       setRecentSearches(updatedSearches);
       localStorage.setItem('recentSearches', JSON.stringify(updatedSearches));
-      setOpenDropdown(false);
+      setOpenDropdown(true);
     }
   };
 
   const handleClearSearch = () => {
     setSearchQuery('');
+    setShowPrompt(true);
     setOpenDropdown(false);
-  };
-
-  const handleClearRecentSearches = () => {
-    setRecentSearches([]);
-    localStorage.removeItem('recentSearches');
   };
 
   const handleRecentSearchClick = (searchTerm) => {
     setSearchQuery(searchTerm);
     onSearch(searchTerm);
     setOpenDropdown(false);
-    // Move clicked recent search to the top of the list
+    
+    // Find the full result object corresponding to the clicked recent search term
+    const clickedResult = searchResults.find(result => result.title === searchTerm);
+    console.log(clickedResult)
+    if (clickedResult) {
+      onResultClick(clickedResult); // Pass the entire clicked result object to onResultClick
+    }
+    
+    // Update recent searches list
     const updatedSearches = [searchTerm, ...recentSearches.filter(term => term !== searchTerm)].slice(0, 5);
     setRecentSearches(updatedSearches);
     localStorage.setItem('recentSearches', JSON.stringify(updatedSearches));
   };
+  
 
   const handleClickAway = () => {
     setOpenDropdown(false);
@@ -65,6 +70,7 @@ const SearchBar = ({ onSearch, searchResults, onResultClick }) => {
 
   const handleOpenDropdown = () => {
     setOpenDropdown(true);
+    setShowPrompt(false);
   };
 
   return (
@@ -74,37 +80,27 @@ const SearchBar = ({ onSearch, searchResults, onResultClick }) => {
           <TextField
             fullWidth
             variant="outlined"
-            placeholder="Search..."
+            placeholder={showPrompt ? "Search for assets" : "Search..."}
             value={searchQuery}
             onChange={handleSearchChange}
-            onClick={handleOpenDropdown} // Open dropdown when clicking on the search bar
-            InputProps={{
-              endAdornment: (
-                <InputAdornment position="end">
-                  <IconButton onClick={handleClearSearch}>
-                    Clear
-                  </IconButton>
-                  <IconButton type="submit">
-                    Search
-                  </IconButton>
-                </InputAdornment>
-              ),
-            }}
+            onClick={handleOpenDropdown}
+
           />
         </form>
         {openDropdown && (
           <Paper>
-            {searchResults.length > 0 ? (
+            {searchQuery.trim() !== '' && searchResults.length === 0 && (
+              <MenuItem>Nothing found</MenuItem>
+            )}
+            {searchResults.length > 0 && (
               searchResults.map((result, index) => (
                 <MenuItem key={index} onClick={() => {
                   onResultClick(result);
-                  handleRecentSearchClick(result.title); // Include clicked search result in recent searches
+                  handleRecentSearchClick(result.title);
                 }}>
                   {result.title}
                 </MenuItem>
               ))
-            ) : (
-              <MenuItem>Nothing found</MenuItem>
             )}
             {recentSearches.length > 0 && (
               <>
@@ -114,7 +110,10 @@ const SearchBar = ({ onSearch, searchResults, onResultClick }) => {
                     {term}
                   </MenuItem>
                 ))}
-                <MenuItem onClick={handleClearRecentSearches} style={{ color: 'blue' }}>Clear recent searches</MenuItem>
+                <MenuItem onClick={() => {
+                  setRecentSearches([]);
+                  localStorage.removeItem('recentSearches');
+                }} style={{ color: 'blue' }}>Clear recent searches</MenuItem>
               </>
             )}
           </Paper>

@@ -40,6 +40,7 @@ export const trendingData = [
 
 export const kpiData = [
   {
+    modal: "kpi",
     title: "Prescription Volume",
     description: "Tracks the total number of prescriptions filled for a specific medication.",
     metricIDs: ["RX001", "RX002"],
@@ -70,6 +71,7 @@ export const kpiData = [
     },
   },
   {
+    modal: "kpi",
     title: "Adherence Rate",
     description: "Measures the percentage of patients who follow their prescribed medication regimen.",
     metricIDs: ["ADH001", "ADH002"],
@@ -97,6 +99,7 @@ export const kpiData = [
     },
   },
   {
+    modal: "kpi",
     title: "Market Share",
     description: "The percentage of total sales in the market that is attributed to our company.",
     metricIDs: ["MS001", "MS002"],
@@ -123,6 +126,7 @@ export const kpiData = [
     },
   },
   {
+    modal: "kpi",
     title: "Revenue Growth",
     description: "The increase in revenue over a specified period.",
     metricIDs: ["REV001", "REV002"],
@@ -151,6 +155,7 @@ export const kpiData = [
     },
   },
   {
+    modal: "kpi",
     title: "Cost per Prescription",
     description: "The average cost incurred per prescription filled.",
     metricIDs: ["COST001", "COST002"],
@@ -181,6 +186,7 @@ export const kpiData = [
     },
   },
   {
+    modal: "kpi",
     title: "Patient Satisfaction",
     description: "Measures the satisfaction levels of patients with their medications and treatment experience.",
     metricIDs: ["SAT001", "SAT002"],
@@ -214,6 +220,7 @@ export const kpiData = [
 
 export const layoutData = [
   {
+    modal: "layout",
     title: "Homepage Layout",
     description: "The main landing page of the website, providing an overview of the site's purpose and main features.",
     lastModifiedDate: "2024-06-09",
@@ -227,6 +234,7 @@ export const layoutData = [
     usedNumber: 15,
   },
   {
+    modal: "layout",
     title: "Product Detail Layout",
     description: "Displays detailed information about a specific pharmaceutical product, including benefits, usage, and side effects.",
     lastModifiedDate: "2024-06-09",
@@ -240,6 +248,7 @@ export const layoutData = [
     usedNumber: 10,
   },
   {
+    modal: "layout",
     title: "Blog Layout",
     description: "A layout for blog posts, providing a structured format for articles, news updates, and informational content.",
     lastModifiedDate: "2024-06-09",
@@ -253,6 +262,7 @@ export const layoutData = [
     usedNumber: 8,
   },
   {
+    modal: "layout",
     title: "Contact Us Layout",
     description: "A page layout for providing contact information and a form for users to reach out to the company.",
     lastModifiedDate: "2024-06-09",
@@ -266,6 +276,7 @@ export const layoutData = [
     usedNumber: 20,
   },
   {
+    modal: "layout",
     title: "FAQ Layout",
     description: "A layout for frequently asked questions, organized to help users find answers quickly.",
     lastModifiedDate: "2024-06-09",
@@ -279,6 +290,7 @@ export const layoutData = [
     usedNumber: 12,
   },
   {
+    modal: "layout",
     title: "User Dashboard Layout",
     description: "A personalized dashboard for users to access their account information, order history, and preferences.",
     lastModifiedDate: "2024-06-09",
@@ -296,6 +308,7 @@ export const layoutData = [
 
 export const storyboardData = [
   {
+    modal: "storyboard",
     title: "New Product Introduction",
     description: "Storyboard for introducing a new product to the market.",
     affiliateApplicability: "Global",
@@ -335,6 +348,7 @@ export const storyboardData = [
     ],
   },
   {
+    modal: "storyboard",
     title: "Digital Marketing Campaign",
     description: "Storyboard outlining the digital marketing campaign strategies.",
     affiliateApplicability: "North America",
@@ -376,6 +390,7 @@ export const storyboardData = [
     ],
   },
   {
+    modal: "storyboard",
     title: "Operational Efficiency",
     description: "Storyboard for tracking operational efficiency improvements.",
     affiliateApplicability: "All affiliates",
@@ -415,6 +430,7 @@ export const storyboardData = [
     ],
   },
   {
+    modal: "storyboard",
     title: "Customer Engagement Plan",
     description: "Storyboard for increasing customer engagement.",
     affiliateApplicability: "EMEA",
@@ -455,6 +471,7 @@ export const storyboardData = [
     ],
   },
   {
+    modal: "storyboard",
     title: "Financial Performance Review",
     description: "Storyboard for reviewing financial performance.",
     affiliateApplicability: "Global",
@@ -495,6 +512,7 @@ export const storyboardData = [
     ],
   },
   {
+    modal: "storyboard",
     title: "R&D Project Timeline",
     description: "Storyboard for tracking R&D project milestones.",
     affiliateApplicability: "All affiliates",

@@ -50,11 +50,12 @@ const Library = ({ onRequest }) => {
   };
 
   const handleCardClick = (cardData) => {
-    if (tabValue === 1) {
+    console.log("1")
+    if (cardData.modal === 'kpi'){
       setSelectedKpiData(cardData);
-    } else if (tabValue === 2) {
+    } else if (cardData.modal === 'layout'){
       setSelectedLayoutData(cardData);
-    } else if (tabValue === 3) {
+    } else if (cardData.modal === 'storyboard'){
       setSelectedStoryboardData(cardData);
     } else {
       setSelectedCardData(cardData);
@@ -102,8 +103,8 @@ const Library = ({ onRequest }) => {
 
   const getTabData = () => {
     switch (tabValue) {
-      case 0:
-        return featuredData;
+      // case 0:
+      //   return featuredData;
       case 1:
         return kpiData;
       case 2:
