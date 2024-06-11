@@ -11,19 +11,15 @@ import {
 } from '@material-ui/core';
 import SearchBar from './SearchBar';
 import RequestModal from './RequestModal';
-import DetailsModal from './DetailsModal';
 import StoryboardModal from './StoryBoardModal';
 import KpiModal from './KpiModal';
 import LayoutModal from './LayoutModal';
 import CustomCard from './Card';
-import { featuredData, trendingData, kpiData, layoutData, storyboardData } from './data';
-
-const additionalAssets = [];
+import { kpiData, layoutData, storyboardData } from './data';
 
 const Library = ({ onRequest }) => {
   const [tabValue, setTabValue] = useState(0);
   const [isRequestModalOpen, setIsRequestModalOpen] = useState(false);
-  const [selectedCardData, setSelectedCardData] = useState(null);
   const [selectedStoryboardData, setSelectedStoryboardData] = useState(null);
   const [selectedKpiData, setSelectedKpiData] = useState(null);
   const [selectedLayoutData, setSelectedLayoutData] = useState(null);
@@ -50,20 +46,13 @@ const Library = ({ onRequest }) => {
   };
 
   const handleCardClick = (cardData) => {
-    console.log("1")
     if (cardData.modal === 'kpi'){
       setSelectedKpiData(cardData);
     } else if (cardData.modal === 'layout'){
       setSelectedLayoutData(cardData);
     } else if (cardData.modal === 'storyboard'){
       setSelectedStoryboardData(cardData);
-    } else {
-      setSelectedCardData(cardData);
-    }
-  };
-
-  const handleCloseModal = () => {
-    setSelectedCardData(null);
+    } 
   };
 
   const handleCloseStoryboardModal = () => {
@@ -80,7 +69,7 @@ const Library = ({ onRequest }) => {
 
   const handleSearch = (query) => {
     console.log('Searching for:', query);
-    const allData = [...featuredData, ...trendingData, ...kpiData, ...layoutData, ...storyboardData];
+    const allData = [ ...kpiData, ...layoutData, ...storyboardData];
     const results = allData.filter(item => item.title.toLowerCase().includes(query.toLowerCase()) || item.description.toLowerCase().includes(query.toLowerCase()));
     setSearchResults(results.length > 0 ? results : [{ title: 'Nothing found', description: '' }]);
   };
@@ -101,10 +90,29 @@ const Library = ({ onRequest }) => {
     </Grid>
   );
 
+  const getFeaturedData = () => {
+    const featuredKpis = kpiData.slice(0, 2);
+    const featuredLayouts = layoutData.slice(0, 2);
+    const featuredStoryboards = storyboardData.slice(0, 2);
+    return [...featuredKpis, ...featuredLayouts, ...featuredStoryboards];
+  };
+
+  const getTrendingData = () => {
+    const trendingKpis = kpiData.slice(2, 4);
+    const trendingLayouts = layoutData.slice(2, 4);
+    const trendingStoryboards = storyboardData.slice(2, 4);
+    return [...trendingKpis, ...trendingLayouts, ...trendingStoryboards];
+  };
+
+  const getAdditionalData = () => {
+    const additionalKpi = kpiData.slice(4, 5);
+    const additionalLayout = layoutData.slice(4, 5);
+    const additionalStoryboard = storyboardData.slice(4, 5);
+    return [...additionalKpi, ...additionalLayout, ...additionalStoryboard];
+  };
+
   const getTabData = () => {
     switch (tabValue) {
-      // case 0:
-      //   return featuredData;
       case 1:
         return kpiData;
       case 2:
@@ -194,10 +202,10 @@ const Library = ({ onRequest }) => {
             <>
               <Typography variant="h5">Featured</Typography>
               <Typography variant="subtitle1">{getSectionTagline("Featured")}</Typography>
-              {renderCards(featuredData)}
+              {renderCards(getFeaturedData())}
               <Typography variant="h5" style={{ marginTop: '20px' }}>Trending</Typography>
               <Typography variant="subtitle1">{getSectionTagline("Trending")}</Typography>
-              {renderCards(trendingData)}
+              {renderCards(getTrendingData())}
               <div style={{ textAlign: 'right', marginTop: '20px' }}>
                 <Link href="#" onClick={handleViewMoreClick}>
                   View more assets
@@ -208,7 +216,7 @@ const Library = ({ onRequest }) => {
           {tabValue === 0 && showAdditionalAssets && (
             <>
               <Typography variant="h5">Additional Assets</Typography>
-              {renderCards(additionalAssets)}
+              {renderCards(getAdditionalData())}
               <div style={{ textAlign: 'right', marginTop: '20px' }}>
                 <Link href="#" onClick={() => setShowAdditionalAssets(false)}>
                   Back to Featured
@@ -235,13 +243,7 @@ const Library = ({ onRequest }) => {
         onClose={handleRequestClose}
         onSubmit={handleRequestSubmit}
       />
-      {selectedCardData && (
-        <DetailsModal
-          isOpen={!!selectedCardData}
-          onClose={handleCloseModal}
-          data={selectedCardData}
-        />
-      )}
+
       {selectedStoryboardData && (
         <StoryboardModal
           isOpen={!!selectedStoryboardData}
