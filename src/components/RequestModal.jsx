@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
 import {
   Dialog,
-  DialogTitle,
   DialogContent,
   DialogActions,
   TextField,
   Button,
   Typography,
+  Snackbar
 } from '@material-ui/core';
 
 const RequestModal = ({ open, onClose, onSubmit }) => {
@@ -14,6 +14,8 @@ const RequestModal = ({ open, onClose, onSubmit }) => {
     what: '',
     why: '',
   });
+
+  const [errorMessage, setErrorMessage] = useState('');
 
   const handleChange = (event) => {
     const { name, value } = event.target;
@@ -24,15 +26,19 @@ const RequestModal = ({ open, onClose, onSubmit }) => {
   };
 
   const handleSubmit = () => {
+    if (requestDetails.what && requestDetails.why) {
     onSubmit(requestDetails);
     onClose();
+  } else {
+    setErrorMessage('Please fill out both fields to submit.');
+  }
   };
 
   return (
-    <Dialog open={open} onClose={onClose}>
-      <DialogTitle>Submit a Request</DialogTitle>
+    <Dialog open={open} onClose={onClose} PaperProps={{ style: { backgroundColor: '#2E3B55', color: '#FFD700' } }}>
+      <Typography variant="h5" style={{ textAlign: 'center', color: '#FFD700', margin:'20px' }}>Submit a Request</Typography>
       <DialogContent>
-        <Typography variant="body1" gutterBottom>
+        <Typography variant="body1" gutterBottom style={{ color: '#FFD700' }}>
           Please specify what you need and why you need it.
         </Typography>
         <TextField
@@ -43,6 +49,11 @@ const RequestModal = ({ open, onClose, onSubmit }) => {
           name="what"
           value={requestDetails.what}
           onChange={handleChange}
+          InputLabelProps={{ style: { color: '#FFD700' } }}
+          InputProps={{
+            style: { color: '#FFD700' },
+            classes: { notchedOutline: '#fff' },
+          }}
         />
         <TextField
           fullWidth
@@ -54,13 +65,23 @@ const RequestModal = ({ open, onClose, onSubmit }) => {
           onChange={handleChange}
           multiline
           rows={4}
+          InputLabelProps={{ style: { color: '#FFD700' } }}
+          InputProps={{
+            style: { color: '#FFD700' },
+            classes: { notchedOutline: 'customOutline' },
+          }}
         />
       </DialogContent>
+      {errorMessage && (
+            <Typography variant="body2" style={{ color: 'FFD700', marginLeft: '20px' }}>
+              {errorMessage}
+            </Typography>
+          )}
       <DialogActions>
-        <Button onClick={onClose} color="primary">
+        <Button onClick={onClose} style={{ color: '#FFD700' }}>
           Cancel
         </Button>
-        <Button onClick={handleSubmit} color="primary">
+        <Button onClick={handleSubmit} style={{ color: '#FFD700' }}>
           Submit
         </Button>
       </DialogActions>
@@ -69,8 +90,4 @@ const RequestModal = ({ open, onClose, onSubmit }) => {
 };
 
 export default RequestModal;
-
-
-
-
 

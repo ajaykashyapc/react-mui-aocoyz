@@ -10,7 +10,6 @@ import {
 const SearchBar = ({ onSearch, searchResults, onResultClick, recentSearches, setRecentSearches }) => {
   const [searchQuery, setSearchQuery] = useState('');
   const [openDropdown, setOpenDropdown] = useState(false);
-  const [showPrompt, setShowPrompt] = useState(false);
 
   useEffect(() => {
     const storedSearches = JSON.parse(localStorage.getItem('recentSearches')) || [];
@@ -19,11 +18,6 @@ const SearchBar = ({ onSearch, searchResults, onResultClick, recentSearches, set
 
   const handleSearchChange = (event) => {
     setSearchQuery(event.target.value);
-    if (event.target.value.trim() === '') {
-      setShowPrompt(true);
-    } else {
-      setShowPrompt(false);
-    }
     setOpenDropdown(true);
     onSearch(event.target.value);
   };
@@ -37,12 +31,6 @@ const SearchBar = ({ onSearch, searchResults, onResultClick, recentSearches, set
       localStorage.setItem('recentSearches', JSON.stringify(updatedSearches));
       setOpenDropdown(true);
     }
-  };
-
-  const handleClearSearch = () => {
-    setSearchQuery('');
-    setShowPrompt(true);
-    setOpenDropdown(false);
   };
 
   const handleRecentSearchClick = (searchTerm) => {
@@ -70,17 +58,16 @@ const SearchBar = ({ onSearch, searchResults, onResultClick, recentSearches, set
 
   const handleOpenDropdown = () => {
     setOpenDropdown(true);
-    setShowPrompt(false);
   };
 
   return (
     <ClickAwayListener onClickAway={handleClickAway}>
       <div>
-        <form onSubmit={handleSearchSubmit} style={{ marginBottom: '20px' }}>
+        <form onSubmit={handleSearchSubmit} style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
           <TextField
-            fullWidth
+            style={{ width: '60%' }}
             variant="outlined"
-            placeholder={showPrompt ? "Search for assets" : "Search..."}
+            placeholder={"Search for assets"}
             value={searchQuery}
             onChange={handleSearchChange}
             onClick={handleOpenDropdown}
@@ -88,7 +75,8 @@ const SearchBar = ({ onSearch, searchResults, onResultClick, recentSearches, set
           />
         </form>
         {openDropdown && (
-          <Paper>
+          <div style={{ display: 'flex', justifyContent: 'center',}}>
+          <Paper style={{ maxHeight: 200, marginTop: '-10px', padding: 0, width:'60%', overflowY: 'auto' }}>
             {searchQuery.trim() !== '' && searchResults.length === 0 && (
               <MenuItem>Nothing found</MenuItem>
             )}
@@ -97,26 +85,29 @@ const SearchBar = ({ onSearch, searchResults, onResultClick, recentSearches, set
                 <MenuItem key={index} onClick={() => {
                   onResultClick(result);
                   handleRecentSearchClick(result.title);
-                }}>
+                }}
+                style={{ padding: 5, marginLeft: 5 }}>
                   {result.title}
                 </MenuItem>
               ))
             )}
             {recentSearches.length > 0 && (
               <>
-                <MenuItem style={{ borderTop: '1px solid lightgray' }}>Recent Searches</MenuItem>
+                <MenuItem style={{ borderTop: '1px solid #666666', color: 'blue', padding: 5, marginLeft: 5 }}>Recent Searches</MenuItem>
                 {recentSearches.map((term, index) => (
-                  <MenuItem key={index} onClick={() => handleRecentSearchClick(term)}>
+                  <MenuItem key={index} onClick={() => handleRecentSearchClick(term)}
+                  style={{ padding: 5, marginLeft: 5, color:'#666666' }}>
                     {term}
                   </MenuItem>
                 ))}
                 <MenuItem onClick={() => {
                   setRecentSearches([]);
                   localStorage.removeItem('recentSearches');
-                }} style={{ color: 'blue' }}>Clear recent searches</MenuItem>
+                }} style={{ color: 'blue', padding: 5, marginLeft: 5 }}>Clear recent searches</MenuItem>
               </>
             )}
           </Paper>
+          </div>
         )}
       </div>
     </ClickAwayListener>

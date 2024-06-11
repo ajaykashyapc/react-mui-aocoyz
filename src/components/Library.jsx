@@ -171,9 +171,9 @@ const Library = ({ onRequest }) => {
           </Button>
         </Toolbar>
       </AppBar>
-      <div style={{ textAlign: 'center', marginTop: '10px' }}>
+      <div style={{ textAlign: 'center' }}>
         <Typography variant="h4" gutterBottom>Library</Typography>
-        <Typography variant="body1" gutterBottom>
+        <Typography variant="h6" gutterBottom>
           Browse for assets needed to report and present analysis.
         </Typography>
       </div>
