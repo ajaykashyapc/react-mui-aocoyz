@@ -242,6 +242,15 @@ const LayoutModal = ({ isOpen, onClose, data }) => {
     }
   };
 
+  const handleFavoriteLayout = () => {
+    console.log(`Favorite Layout: ${data.title}`); // Log the favorite KPI name
+  };
+
+  const handleCopyLink = () => {
+    const dummy = 'https://example.com/layout'; // Replace with your actual link
+    console.log('Link copied:', dummy); // Log the copied link
+  };
+
   return (
     <Dialog open={isOpen} onClose={onClose} maxWidth="md" fullWidth>
       <DialogTitle>
@@ -271,8 +280,8 @@ const LayoutModal = ({ isOpen, onClose, data }) => {
         </div>
       </DialogContent>
       <DialogActions>
-        <Button color="primary" variant="contained" onClick={() => console.log('Favorite Layout')}>Favorite Layout</Button>
-        <Button color="secondary" variant="contained" onClick={() => console.log('Copy link')}>Copy link</Button>
+        <Button color="primary" variant="contained" onClick={handleFavoriteLayout}>Favorite Layout</Button>
+        <Button color="secondary" variant="contained" onClick={handleCopyLink}>Copy link</Button>
       </DialogActions>
     </Dialog>
   );

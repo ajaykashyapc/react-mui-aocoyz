@@ -67,6 +67,15 @@ const KpiModal = ({ isOpen, onClose, data }) => {
     }
   };
 
+  const handleFavoriteKPI = () => {
+    console.log(`Favorite KPI: ${data.title}`); // Log the favorite KPI name
+  };
+
+  const handleCopyLink = () => {
+    const dummy = 'https://example.com/kpi'; // Replace with your actual link
+    console.log('Link copied:', dummy); // Log the copied link
+  };
+  
   return (
     <Dialog open={isOpen} onClose={onClose} maxWidth="md" fullWidth>
       <DialogTitle>
@@ -99,8 +108,8 @@ const KpiModal = ({ isOpen, onClose, data }) => {
         </Grid>
       </DialogContent>
       <DialogActions>
-        <Button color="primary" variant="contained" onClick={() => console.log('Favorite KPI')}>Favorite KPI</Button>
-        <Button color="secondary" variant="contained" onClick={() => console.log('Copy link')}>Copy link</Button>
+        <Button color="primary" variant="contained" onClick={handleFavoriteKPI}>Favorite KPI</Button>
+        <Button color="secondary" variant="contained" onClick={handleCopyLink}>Copy link</Button>
       </DialogActions>
     </Dialog>
   );

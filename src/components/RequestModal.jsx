@@ -73,7 +73,7 @@ const RequestModal = ({ open, onClose, onSubmit }) => {
         />
       </DialogContent>
       {errorMessage && (
-            <Typography variant="body2" style={{ color: 'FFD700', marginLeft: '20px' }}>
+            <Typography variant="body2" style={{ color: '#FFD700', marginLeft: '20px' }}>
               {errorMessage}
             </Typography>
           )}
