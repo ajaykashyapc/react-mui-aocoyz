@@ -76,7 +76,7 @@ const SearchBar = ({ onSearch, searchResults, onResultClick, recentSearches, set
         </form>
         {openDropdown && (
           <div style={{ display: 'flex', justifyContent: 'center',}}>
-          <Paper style={{ maxHeight: 200, marginTop: '-10px', padding: 0, width:'60%', overflowY: 'auto' }}>
+          <Paper style={{ maxHeight: 200, padding: 0, width:'60%', overflowY: 'auto' }}>
             {searchQuery.trim() !== '' && searchResults.length === 0 && (
               <MenuItem>Nothing found</MenuItem>
             )}
