@@ -57,14 +57,21 @@ const StoryBoardModal = ({ isOpen, onClose, data }) => {
 
   return (
     <Dialog open={isOpen} onClose={onClose} maxWidth="md" fullWidth>
-      <DialogTitle>
-        <Typography variant="h5">{data.title}</Typography>
-        <IconButton aria-label="close" onClick={onClose} style={{ position: 'absolute', right: 8, top: 8 }}>
+      <DialogTitle style={{ textAlign: 'center', position: 'relative' }}>
+      <Typography variant="h5" style={{color:'#2E3B55'}}>{data.title}</Typography>
+        <IconButton
+          aria-label="close"
+          onClick={onClose}
+          style={{ position: 'absolute', right: 8, top: 8 }}
+        >
           ×
         </IconButton>
       </DialogTitle>
       <DialogContent>
-        <Typography variant="body1" style={{ marginBottom: '10px' }}>{data.description}</Typography>
+        <Typography variant="body1" style={{ marginBottom: '20px', color:'#2E3B55'}}>
+          {data.description}
+        </Typography>
+
         <div style={{ marginBottom: '20px' }}>
           <FormControl variant="outlined" style={{ marginLeft: '10px', minWidth: '120px' }}>
             <Select
@@ -83,8 +90,10 @@ const StoryBoardModal = ({ isOpen, onClose, data }) => {
 
         <Typography variant="body2" style={{ marginBottom: '10px' }}>Affiliate Applicability: {data.affiliateApplicability}</Typography>
 
-        <div style={{ marginTop: '20px', marginBottom: '20px' }}>
+        <div style={{ marginTop: '20px', marginBottom: '20px', display: 'flex', justifyContent: 'center' }}>
+          <div style={{ width: '80%', height: '80%' }}>
           {currentKpi && renderChart(currentKpi.chartData)}
+        </div>
         </div>
 
       </DialogContent>
