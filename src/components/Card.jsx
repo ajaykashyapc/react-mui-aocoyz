@@ -73,6 +73,14 @@ const CustomCard = ({ icon, title, description }) => {
 </svg>
   );
 
+  const truncateText = (text, wordLimit) => {
+    const words = text.split(' ');
+    if (words.length > wordLimit) {
+      return words.slice(0, wordLimit).join(' ') + '...';
+    }
+    return text;
+  };
+
   switch (icon) {
     case 'kpi':
       IconComponent = <KpiIcon />
@@ -88,11 +96,15 @@ const CustomCard = ({ icon, title, description }) => {
   }
 
   return (
-    <Card style={{ margin: '10px', maxWidth: 345 }}>
-      <CardContent>
-        {IconComponent && <div>{IconComponent}</div>}
-        <Typography variant="h5" component="h2">{title}</Typography>
-        <Typography variant="body2" component="p">{description}</Typography>
+    <Card style={{ margin: '10px', maxWidth: 345, height: 150, backgroundColor: '#2E3B55', color: '#FFD700' }}>
+      <CardContent style={{ display: 'flex', flexDirection: 'column' }}>
+        <div style={{ display: 'flex', alignItems: 'center', marginTop: 0  }}>
+          {IconComponent && <div style={{ marginRight: 10}}>{IconComponent}</div>}
+          <Typography variant="h5"  component="h2" style={{color:'#FFD700', marginTop: 0 }}>{title}</Typography>
+        </div>
+        <Typography variant="body2" component="p" style={{ color: '#FFD700' }}>
+        {truncateText(description, 12)}
+        </Typography>
       </CardContent>
     </Card>
   );

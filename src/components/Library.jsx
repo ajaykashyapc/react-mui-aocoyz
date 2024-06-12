@@ -82,7 +82,7 @@ const Library = ({ onRequest }) => {
     <Grid container spacing={3}>
       {data.map((item, index) => (
         <Grid item key={index} xs={12} sm={6} md={4} lg={3}>
-          <div onClick={() => handleCardClick(item)}>
+          <div onClick={() => handleCardClick(item)} style={{ cursor: 'pointer' }}>
             <CustomCard icon={item.modal} title={item.title} description={item.description} />
           </div>
         </Grid>

@@ -1,48 +1,8 @@
-export const featuredData = [
-  {
-    icon: '📊',
-    title: 'Pharma Market Trends',
-    description: 'Current trends in the pharmaceutical market.',
-    used: 2485,
-    type: 'Universal',
-    pagesNo: 6,
-    lastUpdated: '07/23/2024',
-    tags: ['comms', 'coverage', 'stakeholders'],
-    businessQuestions: [
-      'What are the top-selling drugs?',
-      'How is market share distributed?',
-      'What are the emerging trends?',
-      'Which companies are leading?'
-    ]
-  },
-  // More featured data...
-];
-
-export const trendingData = [
-  {
-    icon: '💊',
-    title: 'COVID-19 Vaccine Impact',
-    description: 'Analysis of the impact of COVID-19 vaccines.',
-    used: 1123,
-    type: 'Report',
-    pagesNo: 4,
-    lastUpdated: '08/15/2024',
-    tags: ['covid', 'vaccine', 'impact'],
-    businessQuestions: [
-      'What is the vaccination rate?',
-      'What are the side effects reported?',
-      'How has the pandemic affected sales?',
-      'Which vaccines are most effective?'
-    ]
-  },
-  // More trending data...
-];
-
 export const kpiData = [
   {
     modal: "kpi",
     title: "Prescription Volume",
-    description: "Tracks the total number of prescriptions filled for a specific medication.",
+    description: "Tracks the total number of prescriptions filled for a specific medication, essential for understanding product demand and distribution strategies. This metric helps assess market penetration and adjust production levels based on prescription trends across various demographics and geographic regions.",
     metricIDs: ["RX001", "RX002"],
     calculation: "Total number of prescriptions filled in a given period.",
     affiliateApplicability: "All affiliates",
@@ -55,16 +15,16 @@ export const kpiData = [
     chartData: {
       chartType: "bar",
       data: {
-        labels: ["Medication A", "Medication B", "Medication C"],
+        labels: ["Medication A", "Medication B", "Medication C", "Medication D", "Medication E", "Medication F"],
         datasets: [
           {
             label: "Prescription Volume",
-            backgroundColor: "#FFD700",
+            backgroundColor: "#2E3B55",
             borderColor: "#000",
             borderWidth: 1,
-            hoverBackgroundColor: "#FFF",
+            hoverBackgroundColor: "#FFD700",
             hoverBorderColor: "#000",
-            data: [1200, 900, 1500],
+            data: [1200, 900, 1500, 300, 780, 1350],
           },
         ],
       },
@@ -73,11 +33,11 @@ export const kpiData = [
   {
     modal: "kpi",
     title: "Adherence Rate",
-    description: "Measures the percentage of patients who follow their prescribed medication regimen.",
+    description: "Measures the percentage of patients who follow their prescribed medication regimen, indicating treatment compliance and overall health outcomes. Understanding adherence rates helps identify patient education needs, adherence barriers, and intervention strategies to improve medication adherence and patient outcomes.",
     metricIDs: ["ADH001", "ADH002"],
     calculation: "Number of patients adhering to their regimen / Total number of patients prescribed the medication * 100",
     affiliateApplicability: "All affiliates",
-    lastModifiedDate: "2024-06-09",
+    lastModifiedDate: "2024-01-02",
     businessQuestions: [
       "What is the current adherence rate for our medications?",
       "Which factors are affecting patient adherence?",
@@ -86,13 +46,13 @@ export const kpiData = [
     chartData: {
       chartType: "line",
       data: {
-        labels: ["Jan", "Feb", "Mar"],
+        labels: ["Jan", "Feb", "Mar", "Apr", "May", "June", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
         datasets: [
           {
             label: "Adherence Rate",
             borderColor: "#FFD700",
-            backgroundColor: "#FFF",
-            data: [80, 75, 85],
+            backgroundColor: "#2E3B55",
+            data: [80, 75, 85,120, 35, 80, 95, 120, 130, 100, 70, 60],
           },
         ],
       },
@@ -101,7 +61,7 @@ export const kpiData = [
   {
     modal: "kpi",
     title: "Market Share",
-    description: "The percentage of total sales in the market that is attributed to our company.",
+    description: "The percentage of total sales in the market attributed to our company, reflecting our competitive position and market dominance. This metric allows comparison with competitors and aids strategic decisions to increase market share through product innovation, market expansion, or competitive pricing strategies.",
     metricIDs: ["MS001", "MS002"],
     calculation: "Company sales / Total market sales * 100",
     affiliateApplicability: "All affiliates",
@@ -114,12 +74,12 @@ export const kpiData = [
     chartData: {
       chartType: "pie",
       data: {
-        labels: ["Your Company", "Competitor A", "Competitor B"],
+        labels: ["Our Company", "Competitor A", "Competitor B", "Competitor C"],
         datasets: [
           {
-            data: [60, 25, 15],
-            backgroundColor: ["#FFD700", "#FFA500", "#FF6347"],
-            hoverBackgroundColor: ["#FFF", "#FFF", "#FFF"],
+            data: [40, 20, 15, 25],
+            backgroundColor: ["#121722", "#415881", "#2e3b55", "#003153"],
+            hoverBackgroundColor: ["#FFD700", "#FFD700", "#FFD700", "#FFD700"],
           },
         ],
       },
@@ -128,11 +88,11 @@ export const kpiData = [
   {
     modal: "kpi",
     title: "Revenue Growth",
-    description: "The increase in revenue over a specified period.",
+    description: "The increase in revenue over a specified period, indicating business performance and financial health. Monitoring revenue growth helps identify successful product launches, market expansions, or operational efficiencies driving revenue. It guides future investment decisions and strategic planning to sustain growth and profitability.",
     metricIDs: ["REV001", "REV002"],
     calculation: "(Current period revenue - Previous period revenue) / Previous period revenue * 100",
     affiliateApplicability: "All affiliates",
-    lastModifiedDate: "2024-06-09",
+    lastModifiedDate: "2024-02-01",
     businessQuestions: [
       "What is our revenue growth rate over the past year?",
       "Which products are contributing most to revenue growth?",
@@ -141,14 +101,15 @@ export const kpiData = [
     chartData: {
       chartType: "doughnut",
       data: {
-        labels: ["Q1", "Q2", "Q3"],
+        labels: ["Q1", "Q2", "Q3", "Q4"],
         datasets: [
           {
             label: "Revenue Growth",
-            backgroundColor: "rgba(255,215,0,0.2)",
-            borderColor: "#FFD700",
+            backgroundColor: ["#121722", "#415881", "#2e3b55", "#003153"],
+            borderColor: "#fff",
+            hoverBackgroundColor: ["#FFD700", "#FFD700", "#FFD700", "#FFD700"],
             borderWidth: 1,
-            data: [1000, 1200, 1500],
+            data: [1000, 1200, 1500, 800],
           },
         ],
       },
@@ -157,7 +118,7 @@ export const kpiData = [
   {
     modal: "kpi",
     title: "Cost per Prescription",
-    description: "The average cost incurred per prescription filled.",
+    description: "The average cost incurred per prescription filled, critical for managing operational expenses and optimizing healthcare delivery costs. This metric benchmarks our cost efficiency against industry standards, identifying opportunities for cost-saving measures and enhancing profitability while maintaining high-quality patient care.",
     metricIDs: ["COST001", "COST002"],
     calculation: "Total costs / Total number of prescriptions filled",
     affiliateApplicability: "All affiliates",
@@ -174,12 +135,12 @@ export const kpiData = [
         datasets: [
           {
             label: "Cost per Prescription",
-            backgroundColor: "#FFD700",
+            backgroundColor: "#2E3B55",
             borderColor: "#000",
             borderWidth: 1,
-            hoverBackgroundColor: "#FFF",
+            hoverBackgroundColor: "#FFD700",
             hoverBorderColor: "#000",
-            data: [15, 20],
+            data: [100, 150],
           },
         ],
       },
@@ -188,7 +149,7 @@ export const kpiData = [
   {
     modal: "kpi",
     title: "Patient Satisfaction",
-    description: "Measures the satisfaction levels of patients with their medications and treatment experience.",
+    description: "Measures the satisfaction levels of patients with their medications and treatment experience, reflecting patient loyalty and treatment efficacy. Monitoring patient satisfaction helps identify areas for service improvement, enhancing patient care delivery, and building a positive reputation in the healthcare community.",
     metricIDs: ["SAT001", "SAT002"],
     calculation: "Sum of satisfaction survey scores / Number of surveys completed",
     affiliateApplicability: "All affiliates",
@@ -199,14 +160,14 @@ export const kpiData = [
       "How can we improve patient satisfaction scores?",
     ],
     chartData: {
-      chartType: "polarArea",
+      chartType: "doughnut",
       data: {
-        labels: ["Satisfied", "Neutral", "Dissatisfied"],
+        labels: ["Very Satisfied", "Satisfied", "Neutral", "Dissatisfied"],
         datasets: [
           {
-            data: [70, 20, 10],
-            backgroundColor: ["#32CD32", "#FFD700", "#FF6347"],
-            hoverBackgroundColor: ["#7CFC00", "#FFA500", "#FF4500"],
+            data: [20, 45, 15, 20],
+            backgroundColor: ["#121722", "#415881", "#2e3b55", "#003153"],
+            hoverBackgroundColor: ["#FFD700", "#FFD700", "#FFD700", "#FFD700"],
           },
         ],
       },
@@ -214,16 +175,12 @@ export const kpiData = [
   },
 ];
 
-
-// You can also update featuredData, trendingData, layoutData, and storyboardData similarly with any additional styling or data as needed.
-
-
 export const layoutData = [
   {
     modal: "layout",
     title: "Homepage Layout",
-    description: "The main landing page of the website, providing an overview of the site's purpose and main features.",
-    lastModifiedDate: "2024-06-09",
+    description: "The main landing page of the website, providing an overview of the site's purpose and main features. This layout aims to capture the user's attention immediately and guide them to key sections of the site. It includes a combination of visuals, text, and navigation elements to enhance user experience.",
+    lastModifiedDate: "2024-06-11",
     businessQuestions: [
       "What key information should be prominently displayed on the homepage?",
       "How can we improve user engagement on the homepage?",
@@ -236,8 +193,8 @@ export const layoutData = [
   {
     modal: "layout",
     title: "Product Detail Layout",
-    description: "Displays detailed information about a specific pharmaceutical product, including benefits, usage, and side effects.",
-    lastModifiedDate: "2024-06-09",
+    description: "Displays detailed information about a specific pharmaceutical product, including benefits, usage, and side effects. The layout ensures that users can easily find and understand critical product information. It also provides space for high-quality images, user reviews, and related product recommendations.",
+    lastModifiedDate: "2024-06-11",
     businessQuestions: [
       "What product information is most important to highlight?",
       "How can we make the product details easy to navigate?",
@@ -250,8 +207,8 @@ export const layoutData = [
   {
     modal: "layout",
     title: "Blog Layout",
-    description: "A layout for blog posts, providing a structured format for articles, news updates, and informational content.",
-    lastModifiedDate: "2024-06-09",
+    description: "A layout for blog posts, providing a structured format for articles, news updates, and informational content. This layout supports easy categorization and tagging of posts for better discoverability. It is designed to enhance readability and encourage user interaction through comments and social media sharing.",
+    lastModifiedDate: "2024-06-11",
     businessQuestions: [
       "How should blog posts be categorized and tagged?",
       "What is the best way to encourage reader interaction with blog posts?",
@@ -264,8 +221,8 @@ export const layoutData = [
   {
     modal: "layout",
     title: "Contact Us Layout",
-    description: "A page layout for providing contact information and a form for users to reach out to the company.",
-    lastModifiedDate: "2024-06-09",
+    description: "A page layout for providing contact information and a form for users to reach out to the company. This layout includes a user-friendly form design, clear contact details, and links to additional resources such as customer support and FAQs. It aims to facilitate communication and provide quick assistance to users.",
+    lastModifiedDate: "2024-06-11",
     businessQuestions: [
       "What contact information is essential to include?",
       "How can we make the contact form user-friendly?",
@@ -278,8 +235,8 @@ export const layoutData = [
   {
     modal: "layout",
     title: "FAQ Layout",
-    description: "A layout for frequently asked questions, organized to help users find answers quickly.",
-    lastModifiedDate: "2024-06-09",
+    description: "A layout for frequently asked questions, organized to help users find answers quickly. This layout uses a clear and logical structure, often with expandable sections to keep the page uncluttered. It includes search functionality and regularly updated content to ensure users can find the most relevant information.",
+    lastModifiedDate: "2024-06-11",
     businessQuestions: [
       "What are the most common questions our users have?",
       "How can we structure the FAQ for easy navigation?",
@@ -292,8 +249,8 @@ export const layoutData = [
   {
     modal: "layout",
     title: "User Dashboard Layout",
-    description: "A personalized dashboard for users to access their account information, order history, and preferences.",
-    lastModifiedDate: "2024-06-09",
+    description: "A personalized dashboard for users to access their account information, order history, and preferences. This layout is designed to be intuitive and user-friendly, providing easy access to important metrics and account management tools. It includes customizable widgets and quick links to enhance user engagement and satisfaction.",
+    lastModifiedDate: "2024-06-11",
     businessQuestions: [
       "What features should be included in the user dashboard?",
       "How can we make the dashboard intuitive and user-friendly?",
@@ -305,12 +262,11 @@ export const layoutData = [
   },
 ];
 
-
 export const storyboardData = [
   {
     modal: "storyboard",
     title: "New Product Introduction",
-    description: "Storyboard for introducing a new product to the market.",
+    description: "Storyboard for introducing a new product to the market. This storyboard outlines the key steps and strategies for a successful product launch. It includes market analysis, promotional tactics, and initial sales targets to ensure the new product gains traction.",
     affiliateApplicability: "Global",
     kpis: [
       {
@@ -322,8 +278,9 @@ export const storyboardData = [
             datasets: [
               {
                 label: "Market Penetration",
-                backgroundColor: ["#FFD700", "#FF5733"],
-                data: [60, 40],
+                backgroundColor: ["#415881", "#2E3B55"],
+                hoverBackgroundColor: ["#FFD700", "#FFD700"],
+                data: [40, 60],
               },
             ],
           },
@@ -334,12 +291,13 @@ export const storyboardData = [
         chartData: {
           chartType: "bar",
           data: {
-            labels: ["Survey Scores"],
+            labels: ["Q1 Survey", "Q2 Survey", "Q3 Survey", "Q4 Survey"],
             datasets: [
               {
                 label: "Customer Feedback Score",
-                backgroundColor: "#36A2EB",
-                data: [8.5],
+                backgroundColor: "#2E3B55",
+                hoverBackgroundColor: "#FFD700",
+                data: [8.5, 7, 6, 8],
               },
             ],
           },
@@ -350,7 +308,7 @@ export const storyboardData = [
   {
     modal: "storyboard",
     title: "Digital Marketing Campaign",
-    description: "Storyboard outlining the digital marketing campaign strategies.",
+    description: "Storyboard outlining the digital marketing campaign strategies. This includes detailed plans for online advertisements, social media promotions, and email marketing. It also tracks the effectiveness of different digital channels and adjusts strategies to maximize engagement and conversion rates.",
     affiliateApplicability: "North America",
     kpis: [
       {
@@ -358,13 +316,13 @@ export const storyboardData = [
         chartData: {
           chartType: "line",
           data: {
-            labels: ["Clicks", "Impressions"],
+            labels: ["Clicks", "Impressions", "Responses"],
             datasets: [
               {
                 label: "Click-Through Rate (CTR)",
                 borderColor: "#FFD700",
-                backgroundColor: "rgba(255, 215, 0, 0.1)",
-                data: [2.5, 5],
+                backgroundColor: "#2E3B55",
+                data: [5.5, 4, 3.5],
               },
             ],
           },
@@ -379,8 +337,8 @@ export const storyboardData = [
             datasets: [
               {
                 label: "Conversion Rate",
-                borderColor: "#FF5733",
-                backgroundColor: "rgba(255, 87, 51, 0.1)",
+                borderColor: "#FFD700",
+                backgroundColor: "#2E3B55",
                 data: [1.8, 3],
               },
             ],
@@ -392,20 +350,20 @@ export const storyboardData = [
   {
     modal: "storyboard",
     title: "Operational Efficiency",
-    description: "Storyboard for tracking operational efficiency improvements.",
+    description: "Storyboard for tracking operational efficiency improvements. This storyboard focuses on identifying bottlenecks and streamlining processes to enhance productivity. It includes metrics for monitoring production downtime, cost reduction initiatives, and workflow optimizations.",
     affiliateApplicability: "All affiliates",
     kpis: [
       {
         title: "Production Downtime",
         chartData: {
-          chartType: "bar",
+          chartType: "doughnut",
           data: {
-            labels: ["Downtime Hours"],
+            labels: ["Product Downtime Hours", "Service Downtime Hours"],
             datasets: [
               {
-                label: "Production Downtime",
-                backgroundColor: "#FFD700",
-                data: [5],
+                backgroundColor: ["#2E3B55", "#415881"],
+                hoverBackgroundColor: ["#FFD700", "#FFD700"],
+                data: [35,65],
               },
             ],
           },
@@ -416,12 +374,13 @@ export const storyboardData = [
         chartData: {
           chartType: "bar",
           data: {
-            labels: ["Cost per Unit"],
+            labels: ["Cost", "Labor", "Commission"],
             datasets: [
               {
                 label: "Unit Cost Reduction",
-                backgroundColor: "#FF5733",
-                data: [10],
+                backgroundColor: "#2E3B55",
+                hoverBackgroundColor: "#FFD700",
+                data: [8,4,2],
               },
             ],
           },
@@ -432,7 +391,7 @@ export const storyboardData = [
   {
     modal: "storyboard",
     title: "Customer Engagement Plan",
-    description: "Storyboard for increasing customer engagement.",
+    description: "Storyboard for increasing customer engagement. This plan includes strategies for enhancing customer interactions through various channels such as social media, loyalty programs, and personalized communications. It aims to build strong customer relationships and increase retention rates.",
     affiliateApplicability: "EMEA",
     kpis: [
       {
@@ -440,12 +399,13 @@ export const storyboardData = [
         chartData: {
           chartType: "doughnut",
           data: {
-            labels: ["Retention Rate"],
+            labels: ["2021", "2022", "2023"],
             datasets: [
               {
                 label: "Customer Retention Rate",
-                backgroundColor: ["#FFD700", "#FF5733"],
-                data: [85, 15],
+                backgroundColor: [ "#415881", "#2e3b55", "#003153"],
+                hoverBackgroundColor: ["#FFD700", "#FFD700", "#FFD700"],
+                data: [35, 25, 40],
               },
             ],
           },
@@ -456,13 +416,13 @@ export const storyboardData = [
         chartData: {
           chartType: "line",
           data: {
-            labels: ["Response Time", "Incident Time"],
+            labels: [ "Incident Time", "Response Time", "Resolved Time"],
             datasets: [
               {
                 label: "Average Response Time",
-                borderColor: "#36A2EB",
-                backgroundColor: "rgba(54, 162, 235, 0.1)",
-                data: [24,56],
+                borderColor: "#FFD700",
+                backgroundColor: "#2E3B55",
+                data: [10, 16, 40],
               },
             ],
           },
@@ -473,7 +433,7 @@ export const storyboardData = [
   {
     modal: "storyboard",
     title: "Financial Performance Review",
-    description: "Storyboard for reviewing financial performance.",
+    description: "Storyboard for reviewing financial performance. This includes an analysis of key financial metrics such as revenue growth, profit margins, and cost management. It provides insights into the company's financial health and helps identify areas for improvement.",
     affiliateApplicability: "Global",
     kpis: [
       {
@@ -485,9 +445,11 @@ export const storyboardData = [
             datasets: [
               {
                 label: "Revenue Growth",
-                borderColor: "#FFD700",
-                backgroundColor: "rgba(255, 215, 0, 0.1)",
-                data: [12, 34, 56],
+                backgroundColor: "#2E3B55",
+                borderColor: "#fff",
+                borderWidth: 1,
+                hoverBackgroundColor: "#FFD700",
+                data: [32, 24, 44],
               },
             ],
           },
@@ -498,12 +460,13 @@ export const storyboardData = [
         chartData: {
           chartType: "bar",
           data: {
-            labels: ["Profit Margin"],
+            labels: ["Cost", "Profit", "Taxes", "Net Profit"],
             datasets: [
               {
                 label: "Net Profit Margin",
-                backgroundColor: "#FF5733",
-                data: [20],
+                backgroundColor: "#2E3B55",
+                hoverBackgroundColor: "#FFD700",
+                data: [30, 70, 25, 45],
               },
             ],
           },
@@ -514,21 +477,22 @@ export const storyboardData = [
   {
     modal: "storyboard",
     title: "R&D Project Timeline",
-    description: "Storyboard for tracking R&D project milestones.",
+    description: "Storyboard for tracking R&D project milestones. This storyboard highlights the progress and timelines of various R&D initiatives. It includes key performance indicators to monitor project completion rates, innovation indices, and the impact of research outcomes.",
     affiliateApplicability: "All affiliates",
     kpis: [
       {
         title: "Project Completion Rate",
         chartData: {
-          chartType: "line",
+          chartType: "pie",
           data: {
             labels: ["Milestones Achieved", "Goals Achieved"],
             datasets: [
               {
                 label: "Project Completion Rate",
-                borderColor: "#36A2EB",
-                backgroundColor: "rgba(54, 162, 235, 0.1)",
-                data: [90, 120],
+                borderColor: "#fff",
+                backgroundColor: ["#415881", "#2E3B55"],
+                hoverBackgroundColor: ["#FFD700", "#FFD700"],
+                data: [60, 40],
               },
             ],
           },
@@ -539,12 +503,16 @@ export const storyboardData = [
         chartData: {
           chartType: "bar",
           data: {
-            labels: ["Innovation Score"],
+            labels: ["Product Score", "Services Score", "Others"],
             datasets: [
               {
                 label: "Innovation Index",
-                backgroundColor: "#FFD700",
-                data: [7.8],
+                backgroundColor: "#2E3B55",
+                borderColor: "#000",
+                borderWidth: 1,
+                hoverBackgroundColor: "#FFD700",
+                hoverBorderColor: "#000",
+                data: [7.8, 6.3, 2.5],
               },
             ],
           },
