@@ -2,7 +2,7 @@ export const kpiData = [
   {
     modal: "kpi",
     title: "Prescription Volume",
-    description: "Tracks the total number of prescriptions filled for a specific medication, essential for understanding product demand and distribution strategies. This metric helps assess market penetration and adjust production levels based on prescription trends across various demographics and geographic regions.",
+    description: "Tracks the total number of prescriptions filled for a specific medication. It's essential for understanding product demand and distribution strategies. This metric helps assess market penetration and adjust production levels based on prescription trends across various demographics and geographic regions.",
     metricIDs: ["RX001", "RX002"],
     calculation: "Total number of prescriptions filled in a given period.",
     affiliateApplicability: "All affiliates",
@@ -33,7 +33,7 @@ export const kpiData = [
   {
     modal: "kpi",
     title: "Adherence Rate",
-    description: "Measures the percentage of patients who follow their prescribed medication regimen, indicating treatment compliance and overall health outcomes. Understanding adherence rates helps identify patient education needs, adherence barriers, and intervention strategies to improve medication adherence and patient outcomes.",
+    description: "Measures the percentage of patients who follow their prescribed medication regimen. It indicates treatment compliance and overall health outcomes. Understanding adherence rates helps identify patient education needs, adherence barriers, and intervention strategies to improve medication adherence and patient outcomes.",
     metricIDs: ["ADH001", "ADH002"],
     calculation: "Number of patients adhering to their regimen / Total number of patients prescribed the medication * 100",
     affiliateApplicability: "All affiliates",
@@ -61,7 +61,7 @@ export const kpiData = [
   {
     modal: "kpi",
     title: "Market Share",
-    description: "The percentage of total sales in the market attributed to our company, reflecting our competitive position and market dominance. This metric allows comparison with competitors and aids strategic decisions to increase market share through product innovation, market expansion, or competitive pricing strategies.",
+    description: "The percentage of total sales in the market attributed to our company. It reflects our competitive position and market dominance. This metric allows comparison with competitors and aids strategic decisions to increase market share through product innovation, market expansion, or competitive pricing strategies.",
     metricIDs: ["MS001", "MS002"],
     calculation: "Company sales / Total market sales * 100",
     affiliateApplicability: "All affiliates",
@@ -88,7 +88,7 @@ export const kpiData = [
   {
     modal: "kpi",
     title: "Revenue Growth",
-    description: "The increase in revenue over a specified period, indicating business performance and financial health. Monitoring revenue growth helps identify successful product launches, market expansions, or operational efficiencies driving revenue. It guides future investment decisions and strategic planning to sustain growth and profitability.",
+    description: "The increase in revenue over a specified period, indicating business performance. Monitoring revenue growth helps identify successful product launches, market expansions, or operational efficiencies driving revenue. It guides future investment decisions and strategic planning to sustain growth and profitability.",
     metricIDs: ["REV001", "REV002"],
     calculation: "(Current period revenue - Previous period revenue) / Previous period revenue * 100",
     affiliateApplicability: "All affiliates",
@@ -118,7 +118,7 @@ export const kpiData = [
   {
     modal: "kpi",
     title: "Cost per Prescription",
-    description: "The average cost incurred per prescription filled, critical for managing operational expenses and optimizing healthcare delivery costs. This metric benchmarks our cost efficiency against industry standards, identifying opportunities for cost-saving measures and enhancing profitability while maintaining high-quality patient care.",
+    description: "The average cost incurred per prescription filled, critical for optimizing healthcare delivery. This metric benchmarks our cost efficiency against industry standards, identifying opportunities for cost-saving measures and enhancing profitability while maintaining high-quality patient care.",
     metricIDs: ["COST001", "COST002"],
     calculation: "Total costs / Total number of prescriptions filled",
     affiliateApplicability: "All affiliates",
@@ -149,7 +149,7 @@ export const kpiData = [
   {
     modal: "kpi",
     title: "Patient Satisfaction",
-    description: "Measures the satisfaction levels of patients with their medications and treatment experience, reflecting patient loyalty and treatment efficacy. Monitoring patient satisfaction helps identify areas for service improvement, enhancing patient care delivery, and building a positive reputation in the healthcare community.",
+    description: "Measures the satisfaction levels of patients with their medications and treatment experience. It reflects patient loyalty and treatment efficacy. Monitoring patient satisfaction helps identify areas for service improvement, enhancing patient care delivery, and building a positive reputation in the healthcare community.",
     metricIDs: ["SAT001", "SAT002"],
     calculation: "Sum of satisfaction survey scores / Number of surveys completed",
     affiliateApplicability: "All affiliates",
@@ -249,7 +249,7 @@ export const layoutData = [
   {
     modal: "layout",
     title: "User Dashboard Layout",
-    description: "A personalized dashboard for users to access their account information, order history, and preferences. This layout is designed to be intuitive and user-friendly, providing easy access to important metrics and account management tools. It includes customizable widgets and quick links to enhance user engagement and satisfaction.",
+    description: "A personalized dashboard for users to access their account, order history, and preferences. This layout is designed to be intuitive and user-friendly, providing easy access to important metrics and account management tools. It includes customizable widgets and quick links to enhance user engagement and satisfaction.",
     lastModifiedDate: "2024-06-11",
     businessQuestions: [
       "What features should be included in the user dashboard?",
@@ -266,7 +266,7 @@ export const storyboardData = [
   {
     modal: "storyboard",
     title: "New Product Introduction",
-    description: "Storyboard for introducing a new product to the market. This storyboard outlines the key steps and strategies for a successful product launch. It includes market analysis, promotional tactics, and initial sales targets to ensure the new product gains traction.",
+    description: "Storyboard for introducing a new product to the market targetting customers. This storyboard outlines the key steps and strategies for a successful product launch. It includes market analysis, promotional tactics, and initial sales targets to ensure the new product gains traction.",
     affiliateApplicability: "Global",
     kpis: [
       {
@@ -308,7 +308,7 @@ export const storyboardData = [
   {
     modal: "storyboard",
     title: "Digital Marketing Campaign",
-    description: "Storyboard outlining the digital marketing campaign strategies. This includes detailed plans for online advertisements, social media promotions, and email marketing. It also tracks the effectiveness of different digital channels and adjusts strategies to maximize engagement and conversion rates.",
+    description: "Storyboard outlining the digital marketing campaign strategies and ideas. This includes detailed plans for online advertisements, social media promotions, and email marketing. It also tracks the effectiveness of different digital channels and adjusts strategies to maximize engagement and conversion rates.",
     affiliateApplicability: "North America",
     kpis: [
       {
@@ -350,7 +350,7 @@ export const storyboardData = [
   {
     modal: "storyboard",
     title: "Operational Efficiency",
-    description: "Storyboard for tracking operational efficiency improvements. This storyboard focuses on identifying bottlenecks and streamlining processes to enhance productivity. It includes metrics for monitoring production downtime, cost reduction initiatives, and workflow optimizations.",
+    description: "Storyboard for tracking operational efficiency and its improvements. This storyboard focuses on identifying bottlenecks and streamlining processes to enhance productivity. It includes metrics for monitoring production downtime, cost reduction initiatives, and workflow optimizations.",
     affiliateApplicability: "All affiliates",
     kpis: [
       {
@@ -391,7 +391,7 @@ export const storyboardData = [
   {
     modal: "storyboard",
     title: "Customer Engagement Plan",
-    description: "Storyboard for increasing customer engagement. This plan includes strategies for enhancing customer interactions through various channels such as social media, loyalty programs, and personalized communications. It aims to build strong customer relationships and increase retention rates.",
+    description: "Storyboard for increasing customer engagement by various methodologies. This plan includes strategies for enhancing customer interactions through various channels such as social media, loyalty programs, and personalized communications. It aims to build strong customer relationships and increase retention rates.",
     affiliateApplicability: "EMEA",
     kpis: [
       {
@@ -433,7 +433,7 @@ export const storyboardData = [
   {
     modal: "storyboard",
     title: "Financial Performance Review",
-    description: "Storyboard for reviewing financial performance. This includes an analysis of key financial metrics such as revenue growth, profit margins, and cost management. It provides insights into the company's financial health and helps identify areas for improvement.",
+    description: "Storyboard for reviewing financial performance and key insights. This includes an analysis of key financial metrics such as revenue growth, profit margins, and cost management. It provides insights into the company's financial health and helps identify areas for improvement.",
     affiliateApplicability: "Global",
     kpis: [
       {
@@ -477,7 +477,7 @@ export const storyboardData = [
   {
     modal: "storyboard",
     title: "R&D Project Timeline",
-    description: "Storyboard for tracking R&D project milestones. This storyboard highlights the progress and timelines of various R&D initiatives. It includes key performance indicators to monitor project completion rates, innovation indices, and the impact of research outcomes.",
+    description: "Storyboard for tracking Research & Development project milestones. This storyboard highlights the progress and timelines of various R&D initiatives. It includes key performance indicators to monitor project completion rates, innovation indices, and the impact of research outcomes.",
     affiliateApplicability: "All affiliates",
     kpis: [
       {

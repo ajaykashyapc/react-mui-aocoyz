@@ -172,8 +172,8 @@ const Library = ({ onRequest }) => {
         </Toolbar>
       </AppBar>
       <div style={{ textAlign: 'center' }}>
-        <Typography variant="h4" gutterBottom>Library</Typography>
-        <Typography variant="h6" gutterBottom>
+        <Typography variant="h4" style={{color:'#2E3B55'}} gutterBottom>Library</Typography>
+        <Typography variant="h6" style={{color:'#2E3B55'}} gutterBottom>
           Browse for assets needed to report and present analysis.
         </Typography>
       </div>
@@ -200,14 +200,14 @@ const Library = ({ onRequest }) => {
         <div style={{ marginTop: '20px' }}>
           {tabValue === 0 && !showAdditionalAssets && (
             <>
-              <Typography variant="h5">Featured</Typography>
-              <Typography variant="subtitle1">{getSectionTagline("Featured")}</Typography>
+              <Typography variant="h5" style={{color:'#2E3B55'}}>Featured</Typography>
+              <Typography variant="subtitle1" style={{color:'#2E3B55'}}>{getSectionTagline("Featured")}</Typography>
               {renderCards(getFeaturedData())}
-              <Typography variant="h5" style={{ marginTop: '20px' }}>Trending</Typography>
-              <Typography variant="subtitle1">{getSectionTagline("Trending")}</Typography>
+              <Typography variant="h5" style={{ marginTop: '20px',color:'#2E3B55' }}>Trending</Typography>
+              <Typography variant="subtitle1" style={{color:'#2E3B55'}}>{getSectionTagline("Trending")}</Typography>
               {renderCards(getTrendingData())}
               <div style={{ textAlign: 'right', marginTop: '20px' }}>
-                <Link href="#" onClick={handleViewMoreClick}>
+                <Link href="#" onClick={handleViewMoreClick} style={{color:'#2E3B55'}}>
                   View more assets
                 </Link>
               </div>
@@ -215,15 +215,15 @@ const Library = ({ onRequest }) => {
           )}
           {tabValue === 0 && showAdditionalAssets && (
             <>
-              <Typography variant="h5">Additional Assets</Typography>
+              <Typography variant="h5" style={{color:'#2E3B55'}}>Additional Assets</Typography>
               {renderCards(getAdditionalData())}
               <div style={{ textAlign: 'right', marginTop: '20px' }}>
-                <Link href="#" onClick={() => setShowAdditionalAssets(false)}>
+                <Link href="#" onClick={() => setShowAdditionalAssets(false)} style={{color:'#2E3B55'}}>
                   Back to Featured
                 </Link>
               </div>
               <div style={{ textAlign: 'center', marginTop: '20px' }}>
-                <Typography variant="body2">
+                <Typography variant="body2" style={{color:'#2E3B55'}}>
                   Not seeing what you want? Try Search instead
                 </Typography>
               </div>
@@ -232,7 +232,7 @@ const Library = ({ onRequest }) => {
           {tabValue !== 0 && (
             <>
               <Typography variant="h5">{getTabTitle()}</Typography>
-              <Typography variant="subtitle1">{getSectionTagline(getTabTitle())}</Typography>
+              <Typography variant="subtitle1" style={{color:'#2E3B55'}}>{getSectionTagline(getTabTitle())}</Typography>
               {renderCards(getTabData())}
             </>
           )}

@@ -73,12 +73,12 @@ const CustomCard = ({ icon, title, description }) => {
 </svg>
   );
 
-  const truncateText = (text, wordLimit) => {
-    const words = text.split(' ');
-    if (words.length > wordLimit) {
-      return words.slice(0, wordLimit).join(' ') + '...';
+  const getFirstSentence = (text) => {
+    const periodIndex = text.indexOf('.');
+    if (periodIndex !== -1) {
+      return text.substring(0, periodIndex + 1);
     }
-    return text;
+    return text; // If there is no period, return the whole text
   };
 
   switch (icon) {
@@ -103,7 +103,7 @@ const CustomCard = ({ icon, title, description }) => {
           <Typography variant="h5"  component="h2" style={{color:'#FFD700', marginTop: 0 }}>{title}</Typography>
         </div>
         <Typography variant="body2" component="p" style={{ color: '#FFD700' }}>
-        {truncateText(description, 12)}
+        {getFirstSentence(description)}
         </Typography>
       </CardContent>
     </Card>

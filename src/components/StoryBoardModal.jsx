@@ -11,7 +11,7 @@ import {
   MenuItem,
   FormControl,
   InputLabel,
-  Select,
+  Select, Card, CardContent,
 } from '@material-ui/core';
 import { Bar, Line, Pie, Doughnut, Radar, PolarArea } from 'react-chartjs-2';
 
@@ -72,23 +72,37 @@ const StoryBoardModal = ({ isOpen, onClose, data }) => {
           {data.description}
         </Typography>
 
-        <div style={{ marginBottom: '20px' }}>
-          <FormControl variant="outlined" style={{ marginLeft: '10px', minWidth: '120px' }}>
-            <Select
-              labelId="kpi-select-label"
-              id="kpi-select"
-              value={selectedKpiIndex}
-              onChange={handleKpiChange}
-              label="KPI"
-            >
-              {data.kpis.map((kpi, index) => (
-                <MenuItem key={index} value={index}>{kpi.title}</MenuItem>
-              ))}
-            </Select>
-          </FormControl>
-        </div>
+        <Grid container alignItems="center">
+  <Grid item>
+    <FormControl variant="outlined" style={{ marginLeft: '10px', minWidth: '120px' }}>
+      <Select
+        labelId="kpi-select-label"
+        id="kpi-select"
+        value={selectedKpiIndex}
+        onChange={handleKpiChange}
+        label="KPI"
+      >
+        {data.kpis.map((kpi, index) => (
+          <MenuItem key={index} value={index}>{kpi.title}</MenuItem>
+        ))}
+      </Select>
+    </FormControl>
+  </Grid>
+  <Grid item style={{ flexGrow: 1 }} />
+  <Grid item>
+    <Card style={{ width: 'auto', padding: '6px', backgroundColor: '#2E3B55' }}>
+      <CardContent style={{ padding: '0', display: 'flex', justifyContent: 'space-between' }}>
+        <Typography variant="body2" style={{ marginRight: '15px', color: '#FFD700' }}>
+          Affiliate Applicability:
+        </Typography>
+        <Typography variant="body2" style={{ marginRight: '10px', color: '#FFD700' }}>
+          {data.affiliateApplicability}
+        </Typography>
+      </CardContent>
+    </Card>
+  </Grid>
+</Grid>
 
-        <Typography variant="body2" style={{ marginBottom: '10px' }}>Affiliate Applicability: {data.affiliateApplicability}</Typography>
 
         <div style={{ marginTop: '20px', marginBottom: '20px', display: 'flex', justifyContent: 'center' }}>
           <div style={{ width: '80%', height: '80%' }}>
