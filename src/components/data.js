@@ -1,3 +1,5 @@
+// This is just a sample data. Ideally data needs to come from API which can be accessed via Redux
+
 export const kpiData = [
   {
     modal: "kpi",
@@ -36,7 +38,7 @@ export const kpiData = [
     description: "Measures the percentage of patients who follow their prescribed medication regimen. It indicates treatment compliance and overall health outcomes. Understanding adherence rates helps identify patient education needs, adherence barriers, and intervention strategies to improve medication adherence and patient outcomes.",
     metricIDs: ["ADH001", "ADH002"],
     calculation: "Number of patients adhering to their regimen / Total number of patients prescribed the medication * 100",
-    affiliateApplicability: "All affiliates",
+    affiliateApplicability: "Vendors",
     lastModifiedDate: "2024-01-02",
     businessQuestions: [
       "What is the current adherence rate for our medications?",
@@ -52,7 +54,7 @@ export const kpiData = [
             label: "Adherence Rate",
             borderColor: "#FFD700",
             backgroundColor: "#2E3B55",
-            data: [80, 75, 85,120, 35, 80, 95, 120, 130, 100, 70, 60],
+            data: [80, 75, 85, 120, 35, 80, 95, 120, 130, 100, 70, 60],
           },
         ],
       },
@@ -64,7 +66,7 @@ export const kpiData = [
     description: "The percentage of total sales in the market attributed to our company. It reflects our competitive position and market dominance. This metric allows comparison with competitors and aids strategic decisions to increase market share through product innovation, market expansion, or competitive pricing strategies.",
     metricIDs: ["MS001", "MS002"],
     calculation: "Company sales / Total market sales * 100",
-    affiliateApplicability: "All affiliates",
+    affiliateApplicability: "Partners",
     lastModifiedDate: "2024-06-09",
     businessQuestions: [
       "What is our market share for key products?",
@@ -121,7 +123,7 @@ export const kpiData = [
     description: "The average cost incurred per prescription filled, critical for optimizing healthcare delivery. This metric benchmarks our cost efficiency against industry standards, identifying opportunities for cost-saving measures and enhancing profitability while maintaining high-quality patient care.",
     metricIDs: ["COST001", "COST002"],
     calculation: "Total costs / Total number of prescriptions filled",
-    affiliateApplicability: "All affiliates",
+    affiliateApplicability: "North America",
     lastModifiedDate: "2024-06-09",
     businessQuestions: [
       "What is the average cost per prescription?",
@@ -131,14 +133,14 @@ export const kpiData = [
     chartData: {
       chartType: "polarArea",
       data: {
-        labels: ["Your Cost", "Industry Benchmark"],
+        labels: ["Our Cost", "Industry Benchmark"],
         datasets: [
           {
             label: "Cost per Prescription",
-            backgroundColor: "#2E3B55",
+            backgroundColor: "rgba(46, 59, 85, 0.7)",
             borderColor: "#000",
             borderWidth: 1,
-            hoverBackgroundColor: "#FFD700",
+            hoverBackgroundColor: "rgba(255, 215, 0, 0.7)",
             hoverBorderColor: "#000",
             data: [100, 150],
           },
@@ -152,7 +154,7 @@ export const kpiData = [
     description: "Measures the satisfaction levels of patients with their medications and treatment experience. It reflects patient loyalty and treatment efficacy. Monitoring patient satisfaction helps identify areas for service improvement, enhancing patient care delivery, and building a positive reputation in the healthcare community.",
     metricIDs: ["SAT001", "SAT002"],
     calculation: "Sum of satisfaction survey scores / Number of surveys completed",
-    affiliateApplicability: "All affiliates",
+    affiliateApplicability: "Subsidaries",
     lastModifiedDate: "2024-06-09",
     businessQuestions: [
       "What is the overall patient satisfaction with our medications?",
@@ -363,7 +365,7 @@ export const storyboardData = [
               {
                 backgroundColor: ["#2E3B55", "#415881"],
                 hoverBackgroundColor: ["#FFD700", "#FFD700"],
-                data: [35,65],
+                data: [35, 65],
               },
             ],
           },
@@ -380,7 +382,7 @@ export const storyboardData = [
                 label: "Unit Cost Reduction",
                 backgroundColor: "#2E3B55",
                 hoverBackgroundColor: "#FFD700",
-                data: [8,4,2],
+                data: [8, 4, 2],
               },
             ],
           },
@@ -403,7 +405,7 @@ export const storyboardData = [
             datasets: [
               {
                 label: "Customer Retention Rate",
-                backgroundColor: [ "#415881", "#2e3b55", "#003153"],
+                backgroundColor: ["#415881", "#2e3b55", "#003153"],
                 hoverBackgroundColor: ["#FFD700", "#FFD700", "#FFD700"],
                 data: [35, 25, 40],
               },
@@ -416,7 +418,7 @@ export const storyboardData = [
         chartData: {
           chartType: "line",
           data: {
-            labels: [ "Incident Time", "Response Time", "Resolved Time"],
+            labels: ["Incident Time", "Response Time", "Resolved Time"],
             datasets: [
               {
                 label: "Average Response Time",
@@ -445,10 +447,10 @@ export const storyboardData = [
             datasets: [
               {
                 label: "Revenue Growth",
-                backgroundColor: "#2E3B55",
-                borderColor: "#fff",
+                backgroundColor: "rgba(46, 59, 85, 0.7)",
+                borderColor: "#000",
                 borderWidth: 1,
-                hoverBackgroundColor: "#FFD700",
+                hoverBackgroundColor: "rgba(255, 215, 0, 0.7)",
                 data: [32, 24, 44],
               },
             ],
